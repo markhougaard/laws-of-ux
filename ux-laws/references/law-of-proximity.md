@@ -40,13 +40,13 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
 | PRX-1 | Blocker | static | A label, value, error message or control is visually closer to an element it doesn't belong to than to its own, so it can be misread. |
-| PRX-2 | Blocker | static | A destructive action sits immediately next to a frequent safe action with no separation. |
-| PRX-3 | Major | static | Within-group and between-group spacing are equal or nearly equal, so groups can't be distinguished. |
-| PRX-4 | Major | static | Grouping that works at desktop width collapses at a supported smaller width. |
-| PRX-5 | Minor | static, code | Spacing values are off the scale (arbitrary pixel values) without justification. |
+| PRX-2 | Major | static | Within-group and between-group spacing are equal or nearly equal, so groups can't be distinguished. |
+| PRX-3 | Major | static | Grouping that works at desktop width collapses at a supported smaller width. |
+| PRX-4 | Minor | static, code | Spacing values are off the scale (arbitrary pixel values) without justification. |
 
 ## Tensions and misuse
 
+- A destructive action placed next to a safe one is checked once, as `FIT-2` in [Fitts's Law](fitts-law.md). Don't report it again here.
 - Common Region and Uniform Connectedness both override proximity; a border or line can undo careful spacing.
 - Dense, data-heavy tools need tighter spacing overall — keep the ratios, shrink the values.
 

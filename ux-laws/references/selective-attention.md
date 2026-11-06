@@ -44,7 +44,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 | SA-2 | Blocker | interactive, code | Errors are displayed but focus isn't moved and they aren't announced, so keyboard and screen-reader users miss them. |
 | SA-3 | Major | static | Essential content uses banner, ad-like or carousel styling. |
 | SA-4 | Major | static | Several simultaneous notifications compete with no priority order. |
-| SA-5 | Major | interactive | A significant state change happens without any visible or announced cue. |
+| SA-5 | Major | interactive, code | A significant state change happens without any visible or announced cue. |
 | SA-6 | Minor | interactive | Ambient animation or auto-updating content draws attention away from the primary task. |
 
 ## Tensions and misuse

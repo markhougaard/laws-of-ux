@@ -1,0 +1,14 @@
+schema_version: "1.1"
+name: review-static-mock-scoped-pass
+expected_outcome: |
+  A Review-mode report whose evidence scope is static only (a still mock with
+  measurements and spec notes; no prototype, code or measurements of a build).
+  The mock has no static Blocker problems, so the verdict is "Pass (static
+  scope)", or "Commit with accepted Majors (static scope)" if the reviewer
+  finds a genuine Major. The verdict is NOT "Blocked pending evidence" merely
+  because keyboard, focus, announcement or latency checks can't be seen in a
+  still image: those Blocker checks (for example JAK-1, SA-2) are listed as out
+  of scope with the evidence kind each needs (interactive, code), separately
+  from any UNVERIFIED items.
+context:
+  scaffold_script: place-files.sh

@@ -55,6 +55,18 @@ Good candidates for adapting to your own product:
 - Design-system tokens and component names in the Build sections
 - Domain conventions in `references/jakobs-law.md` if your users' reference tools aren't consumer apps
 
+## Maintaining
+
+- **Lint:** `python3 scripts/lint.py` (standard library only) checks:
+  - the frontmatter and that every law has its sections in order
+  - that check IDs are sequential and match the law's code, and that every severity and evidence kind is valid
+  - that the index lists every law with the right code
+  - that every check ID mentioned anywhere (including in the evals) exists
+  - that relative links resolve, the eval cases have the layout their runner expects, and no protocol text has been copied back into a law file
+
+  It exits 1 if anything is wrong. Run it before every commit.
+- **Evals:** `ux-laws/evals/` holds review cases with input files and one grader per expected finding or verdict. They cover a flawed sign-up page (code), a clean static mock (expected *Pass (static scope)*), a static form with no error state (expected *Blocked pending evidence*), and a single-law review. Run them from `ux-laws/` with `claude plugin eval . --scaffold`. These are real, billed model runs, with and without the skill. You can leave `evals/` out when you install the skill.
+
 ## Attribution
 
 The list of laws follows [Laws of UX](https://lawsofux.com/) by Jon Yablonski (site content licensed CC BY-NC-ND 4.0). The text in these files is written independently from the underlying research and doesn't reproduce the site's content; each law links to its page on the site. The book *Laws of UX* (O'Reilly) covers the laws in more depth.

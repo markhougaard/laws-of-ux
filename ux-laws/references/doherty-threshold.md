@@ -40,7 +40,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
-| DOH-1 | Blocker | interactive, runtime | A user action produces no visible feedback for more than about 1 s, so users may repeat it (double submissions, duplicate payments). |
+| DOH-1 | Blocker | interactive, code, runtime | A user action produces no visible feedback for more than about 1 s, so users may repeat it (double submissions, duplicate payments). |
 | DOH-2 | Major | runtime | Common interactions exceed about 400 ms on target hardware with no perceived-performance mitigation. |
 | DOH-3 | Major | interactive | Operations over about 10 s block the interface with no progress, estimate or background option. |
 | DOH-4 | Major | context | No performance measurement was done on realistic devices or networks. |

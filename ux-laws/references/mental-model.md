@@ -39,7 +39,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
-| MM-1 | Blocker | interactive | An action has a consequence users wouldn't predict from its label or context (for example 'Close' also deletes, 'Share' makes something public) with no warning. |
+| MM-1 | Blocker | interactive, code | An action has a consequence users wouldn't predict from its label or context (for example 'Close' also deletes, 'Share' makes something public) with no warning. |
 | MM-2 | Major | static | System state that affects user decisions (saved, synced, visibility, permissions) isn't shown. |
 | MM-3 | Major | static | One concept is named differently in different places, or one name covers different concepts. |
 | MM-4 | Major | static | Navigation or structure follows the internal data model rather than user tasks. |

@@ -39,7 +39,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
-| PE-1 | Blocker | interactive | A failure or error state loses user work or gives no path forward. |
+| PE-1 | Blocker | interactive, code | A failure or error state loses user work or gives no path forward. |
 | PE-2 | Major | static | Completion of a key task ends without specific confirmation or next steps. |
 | PE-3 | Major | interactive | Cancellation or offboarding is obstructive, hidden or uses guilt or shame. |
 | PE-4 | Major | static | Error messages are generic, technical or blame the user. |

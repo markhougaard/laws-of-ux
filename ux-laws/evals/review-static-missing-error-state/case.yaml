@@ -1,0 +1,14 @@
+schema_version: "1.1"
+name: review-static-missing-error-state
+expected_outcome: |
+  A Review-mode report whose evidence scope is static. Only the default state
+  of a payment form is supplied; there is no validation-error, declined-card
+  or failure state. Blocker checks that a still image could settle if that
+  state were shown (for example PRX-1 on error-message placement, SA-1 on
+  error information outside the focus area) are reported as UNVERIFIED in
+  scope, so the verdict is "Blocked pending evidence (static scope)", naming the
+  missing error/validation state screens. Checks that need a running build or
+  its code (for example POS-2, SA-2, DOH-1: interactive or code) are listed
+  separately as out of scope and are not what blocks the verdict.
+context:
+  scaffold_script: place-files.sh

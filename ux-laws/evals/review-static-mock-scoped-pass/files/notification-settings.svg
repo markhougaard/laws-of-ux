@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" font-family="-apple-system, system-ui, sans-serif">
+  <title>Notification settings — iOS app, static mock, 1x (1 unit = 1 pt)</title>
+  <rect width="390" height="844" fill="#ffffff"/>
+
+  <!-- Navigation bar: back button, hit area 104x44 pt -->
+  <g id="nav-back">
+    <rect x="8" y="50" width="104" height="44" fill="none"/>
+    <path d="M24 62l-10 10 10 10" fill="none" stroke="#1847c2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="34" y="78" font-size="17" fill="#1847c2">Settings</text>
+  </g>
+
+  <text x="16" y="136" font-size="28" font-weight="700" fill="#1a1a1a">Notifications</text>
+  <text x="16" y="162" font-size="15" fill="#555555">Changes save automatically.</text>
+
+  <!-- Section: Email -->
+  <text x="16" y="212" font-size="13" font-weight="600" fill="#555555" letter-spacing="0.5">EMAIL</text>
+  <rect x="16" y="224" width="358" height="129" rx="12" fill="#ffffff" stroke="#8a8a8a"/>
+
+  <g id="row-product-updates">
+    <text x="32" y="254" font-size="17" fill="#1a1a1a">Product updates</text>
+    <text x="32" y="276" font-size="14" fill="#555555">Once a month at most</text>
+    <!-- toggle 51x31, off -->
+    <rect x="307" y="249" width="51" height="31" rx="15.5" fill="#ffffff" stroke="#6b6b6b" stroke-width="2"/>
+    <circle cx="323" cy="264.5" r="11" fill="#6b6b6b"/>
+    <text x="290" y="270" font-size="14" fill="#555555" text-anchor="end">Off</text>
+  </g>
+  <line x1="32" y1="288.5" x2="374" y2="288.5" stroke="#c8c8c8"/>
+  <g id="row-account-activity">
+    <text x="32" y="318" font-size="17" fill="#1a1a1a">Account activity</text>
+    <text x="32" y="340" font-size="14" fill="#555555">Sign-ins and payment changes</text>
+    <!-- toggle 51x31, on -->
+    <rect x="307" y="313" width="51" height="31" rx="15.5" fill="#1847c2"/>
+    <circle cx="342" cy="328.5" r="12" fill="#ffffff"/>
+    <text x="290" y="334" font-size="14" fill="#1a1a1a" text-anchor="end">On</text>
+  </g>
+
+  <!-- Section: Push -->
+  <text x="16" y="400" font-size="13" font-weight="600" fill="#555555" letter-spacing="0.5">PUSH</text>
+  <rect x="16" y="412" width="358" height="129" rx="12" fill="#ffffff" stroke="#8a8a8a"/>
+
+  <g id="row-mentions">
+    <text x="32" y="442" font-size="17" fill="#1a1a1a">Mentions</text>
+    <text x="32" y="464" font-size="14" fill="#555555">When someone @mentions you</text>
+    <rect x="307" y="437" width="51" height="31" rx="15.5" fill="#1847c2"/>
+    <circle cx="342" cy="452.5" r="12" fill="#ffffff"/>
+    <text x="290" y="458" font-size="14" fill="#1a1a1a" text-anchor="end">On</text>
+  </g>
+  <line x1="32" y1="476.5" x2="374" y2="476.5" stroke="#c8c8c8"/>
+  <g id="row-reminders">
+    <text x="32" y="506" font-size="17" fill="#1a1a1a">Task reminders</text>
+    <text x="32" y="528" font-size="14" fill="#555555">On the day a task is due</text>
+    <rect x="307" y="501" width="51" height="31" rx="15.5" fill="#ffffff" stroke="#6b6b6b" stroke-width="2"/>
+    <circle cx="323" cy="516.5" r="11" fill="#6b6b6b"/>
+    <text x="290" y="522" font-size="14" fill="#555555" text-anchor="end">Off</text>
+  </g>
+
+  <!-- Spec notes from the designer -->
+  <g id="spec-notes" font-size="12" fill="#555555">
+    <text x="16" y="600">Spec: each row is one tap target, 358x64 pt; tapping anywhere on it flips the toggle.</text>
+    <text x="16" y="618">Spacing: 4-pt scale. Colours: system tokens text/primary, text/secondary,</text>
+    <text x="16" y="636">accent/primary, border/default. Native UISwitch with an added On/Off label.</text>
+  </g>
+</svg>

@@ -39,7 +39,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
 | SPE-1 | Major | static | The most important item in a list or navigation is buried in the middle. |
-| SPE-2 | Major | interactive | Item order changes between sessions or screens without user control (except deliberate, explained personalisation). |
+| SPE-2 | Major | interactive, code | Item order changes between sessions or screens without user control (except deliberate, explained personalisation). |
 | SPE-3 | Major | static | Order is used to push an option against user interest without a clear label. |
 | SPE-4 | Minor | static | A long sequence users must remember has no summary at the end. |
 

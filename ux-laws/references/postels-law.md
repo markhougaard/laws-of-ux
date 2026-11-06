@@ -41,11 +41,11 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
-| POS-1 | Blocker | interactive | A consequential value (amount, date, location, recipient) can be silently misinterpreted from ambiguous input. |
-| POS-2 | Blocker | interactive | Validation errors clear the user's input or don't say how to fix the problem (WCAG 3.3.1, 3.3.3). |
-| POS-3 | Major | interactive | A field rejects input because of formatting the system could normalise (spaces, dashes, case, leading zeros). |
+| POS-1 | Blocker | interactive, code | A consequential value (amount, date, location, recipient) can be silently misinterpreted from ambiguous input. |
+| POS-2 | Blocker | interactive, code | Validation errors clear the user's input or don't say how to fix the problem (WCAG 3.3.1, 3.3.3). |
+| POS-3 | Major | interactive, code | A field rejects input because of formatting the system could normalise (spaces, dashes, case, leading zeros). |
 | POS-4 | Major | interactive, code | Paste or autofill is blocked. |
-| POS-5 | Major | interactive | Name or address fields reject legitimate international values. |
+| POS-5 | Major | interactive, code | Name or address fields reject legitimate international values. |
 | POS-6 | Minor | static | Output formats for the same data type vary across the interface. |
 | POS-7 | Minor | static | Layout breaks with long strings, translations or missing data. |
 

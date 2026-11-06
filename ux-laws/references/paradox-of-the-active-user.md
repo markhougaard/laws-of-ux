@@ -43,7 +43,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 |---|---|---|---|
 | PAU-1 | Blocker | interactive | A core task can't be completed without reading external documentation or completing a tutorial. |
 | PAU-2 | Major | interactive | Onboarding is mandatory, long or unskippable. |
-| PAU-3 | Major | interactive | Exploration is risky: actions are irreversible with no undo or preview. |
+| PAU-3 | Major | interactive, code | Exploration is risky: actions are irreversible with no undo or preview. |
 | PAU-4 | Major | static, context | Important capabilities are discoverable only through documentation. |
 | PAU-5 | Minor | static | Empty states are blank or say only 'no data'. |
 

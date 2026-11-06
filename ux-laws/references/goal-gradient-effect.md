@@ -38,7 +38,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
-| GGE-1 | Blocker | interactive | Progress indicators misrepresent real progress (fake percentages, steps added after the count is shown). |
+| GGE-1 | Blocker | interactive, code | Progress indicators misrepresent real progress (fake percentages, steps added after the count is shown). |
 | GGE-2 | Major | static | A multi-step flow of more than three steps has no progress indication. |
 | GGE-3 | Major | static, interactive | Known information isn't pre-filled, making the path longer than needed. |
 | GGE-4 | Minor | static | Remaining time or effort isn't shown for long processes. |

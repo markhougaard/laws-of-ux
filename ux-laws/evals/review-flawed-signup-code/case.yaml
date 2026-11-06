@@ -1,0 +1,17 @@
+schema_version: "1.1"
+name: review-flawed-signup-code
+expected_outcome: |
+  A Review-mode report in the ux-laws template. The evidence scope is stated
+  and includes code (the markup and script were supplied). It reports as
+  Blockers: the pre-ticked consent box that also shares details with partners
+  (CB-1 and/or CB-2), and the invalid email field signalled only by a red
+  border with no message (SIM-2, and POS-2 for not saying how to fix it). It
+  reports the 18x18 px header icon buttons 2 px apart on a touch page (FIT-1).
+  It reports as Majors at least the blocked paste on Confirm password (POS-4)
+  and the missing autocomplete attributes and email input type (PKL-3). The
+  verdict is "Do not commit". It may also flag, from the code, that the
+  submit handler shows no pending state during the request (DOH-1) and that
+  the error is neither announced nor focused (SA-2). Blocker checks the code
+  can't settle are not counted as passed.
+context:
+  scaffold_script: place-files.sh

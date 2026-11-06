@@ -45,7 +45,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 | WM-2 | Blocker | static | Information entered earlier in the same process must be re-entered (WCAG 3.3.7), outside the allowed exceptions. |
 | WM-3 | Major | static | Users must compare options across separate screens or modals without a side-by-side view. |
 | WM-4 | Major | static | Instructions or reference data needed for a step are shown only before that step. |
-| WM-5 | Major | interactive | An interruption (navigating away, a timeout) loses entered data with no recovery. |
+| WM-5 | Major | interactive, code | An interruption (navigating away, a timeout) loses entered data with no recovery. |
 | WM-6 | Minor | static | Current context (selection, filters, location in a flow) isn't visible on screen. |
 
 ## Tensions and misuse

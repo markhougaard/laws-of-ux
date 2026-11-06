@@ -95,7 +95,7 @@ Every Mode 3 check has an **Evidence** column naming the kinds of input that can
 |---|---|---|
 | `static` | What can be seen in still images of the relevant screens and states. | Screenshots, static mocks, design files with measurements, flow boards |
 | `interactive` | What only shows when you operate the thing: keyboard, focus, transitions, timing as experienced, what happens after an action. | A clickable prototype, a running build, a URL, a screen recording |
-| `code` | What is in the source or markup: semantics, ARIA, `autocomplete`, hit areas, tokens. | A diff, component source, rendered DOM |
+| `code` | What is in the source or markup: semantics, ARIA, `autocomplete`, hit areas, tokens, and behaviour the source fixes unambiguously (what a handler does on error, whether input is kept, where focus goes). | A diff, component source, rendered DOM |
 | `runtime` | Measurements on realistic hardware, networks and data. | Performance traces, RUM or lab numbers |
 | `context` | Facts outside the artifact: usage data, research, decision records, business rules. | Analytics, research findings, a PRD or ADR, a statement from the team |
 

@@ -38,7 +38,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
 | ZE-1 | Major | interactive | An 'incomplete' indicator can't be dismissed and doesn't correspond to user value. |
-| ZE-2 | Major | interactive | Unfinished work isn't preserved or resumable. |
+| ZE-2 | Major | interactive, code | Unfinished work isn't preserved or resumable. |
 | ZE-3 | Major | interactive | Badges or counters are inflated or never clear. |
 | ZE-4 | Minor | static | A resume point lacks the context to continue (what was being done, what's left). |
 

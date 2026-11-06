@@ -1,0 +1,15 @@
+schema_version: "1.1"
+name: single-law-postel-review
+expected_outcome: |
+  The ux-laws skill is used and only the Postel's Law reference is applied
+  (no baseline review of Fitts, Jakob, cognitive load and so on), using POS
+  check IDs in the ux-laws finding format. The evidence scope is code. Findings
+  include: as Blockers, the typed value is cleared on a validation error and
+  the message "Invalid input" doesn't say how to fix it (POS-2), and a
+  consequential value (a transfer's execution date) is silently read as
+  DD/MM/YYYY, so input like 06/11/2026 can be misinterpreted, with no echo of
+  the parsed date (POS-1); as a Major, normalisable formats such as 6/11/2026,
+  2026-11-06 or 06-11-2026 are rejected (POS-3). The verdict is "Do not
+  commit".
+context:
+  scaffold_script: place-files.sh
