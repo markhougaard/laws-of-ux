@@ -51,13 +51,13 @@ Review is strict by design: a check passes only on evidence, and any Blocker mea
 You need Node 18 or later. One command installs the skill for Claude Code, Codex and OpenCode in your home directory:
 
 ```sh
-npx @markhougaard/laws-of-ux install
+npx ux-laws install
 ```
 
 Or install the command globally and use `ux-laws` directly:
 
 ```sh
-npm install -g @markhougaard/laws-of-ux
+npm install -g ux-laws
 ux-laws install
 ```
 
@@ -72,7 +72,7 @@ Choose the harness and scope with options:
 | Anything else | `-d <skills dir>` | `<skills dir>/ux-laws/` |
 
 - `-p` installs into the current project instead, so the team gets the skill through the repo. You can also give a path: `-p ../my-app`.
-- `-f` replaces an existing install, for example after an upgrade: `npx @markhougaard/laws-of-ux@latest install -f`.
+- `-f` replaces an existing install, for example after an upgrade: `npx ux-laws@latest install -f`.
 - `-l` symlinks instead of copying. Use it with a global install or a git checkout, not with `npx`, whose cache can be cleared.
 - `ux-laws uninstall` takes the same options. `ux-laws path` prints where the packaged skill is.
 

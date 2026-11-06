@@ -41,9 +41,9 @@ Options:
   -v, --version
 
 Examples:
-  npx @markhougaard/laws-of-ux install                 # Claude Code + Codex + OpenCode, user-wide
-  npx @markhougaard/laws-of-ux install -H codex -p     # Codex, this project only
-  npx @markhougaard/laws-of-ux install -d ~/my-agent/skills -a ~/my-agent/AGENTS.md
+  npx ux-laws install                 # Claude Code + Codex + OpenCode, user-wide
+  npx ux-laws install -H codex -p     # Codex, this project only
+  npx ux-laws install -d ~/my-agent/skills -a ~/my-agent/AGENTS.md
 `;
 
 function die(msg, code = 1) {

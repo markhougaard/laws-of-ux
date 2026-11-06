@@ -1,5 +1,5 @@
 {
-  "name": "@markhougaard/laws-of-ux",
+  "name": "ux-laws",
   "version": "0.1.0",
   "description": "Laws of UX as an agent skill: advise, build and strictly review UI against the 30 laws on lawsofux.com. Installs into Claude Code, Codex, OpenCode or any agent.",
   "keywords": [
