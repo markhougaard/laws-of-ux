@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -51,8 +51,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`hicks-law`** — the time cost of more options ([open](hicks-law.md))
-- **`cognitive-bias`** — defaults and framing in choice ([open](cognitive-bias.md))
-- **`working-memory`** — why comparison must be side by side ([open](working-memory.md))
-- **`pareto-principle`** — which options to feature ([open](pareto-principle.md))
-- **`serial-position-effect`** — which options get noticed ([open](serial-position-effect.md))
+- **`hicks-law`** — the time cost of more options (`references/hicks-law.md`)
+- **`cognitive-bias`** — defaults and framing in choice (`references/cognitive-bias.md`)
+- **`working-memory`** — why comparison must be side by side (`references/working-memory.md`)
+- **`pareto-principle`** — which options to feature (`references/pareto-principle.md`)
+- **`serial-position-effect`** — which options get noticed (`references/serial-position-effect.md`)

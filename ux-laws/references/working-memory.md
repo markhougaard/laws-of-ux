@@ -37,7 +37,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -55,8 +55,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`millers-law`** — the classic capacity claim, and its limits ([open](millers-law.md))
-- **`chunking`** — how to fit more into the same capacity ([open](chunking.md))
-- **`cognitive-load`** — the broader budget working memory belongs to ([open](cognitive-load.md))
-- **`zeigarnik-effect`** — unfinished tasks occupy the mind ([open](zeigarnik-effect.md))
-- **`serial-position-effect`** — which items in a sequence survive ([open](serial-position-effect.md))
+- **`millers-law`** — the classic capacity claim, and its limits (`references/millers-law.md`)
+- **`chunking`** — how to fit more into the same capacity (`references/chunking.md`)
+- **`cognitive-load`** — the broader budget working memory belongs to (`references/cognitive-load.md`)
+- **`zeigarnik-effect`** — unfinished tasks occupy the mind (`references/zeigarnik-effect.md`)
+- **`serial-position-effect`** — which items in a sequence survive (`references/serial-position-effect.md`)

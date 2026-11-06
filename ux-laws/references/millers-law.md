@@ -33,7 +33,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -49,8 +49,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`chunking`** — the actionable technique behind this law ([open](chunking.md))
-- **`working-memory`** — the more current model of the same limit ([open](working-memory.md))
-- **`hicks-law`** — a better guide for number of choices ([open](hicks-law.md))
-- **`postels-law`** — accept chunked and unchunked input alike ([open](postels-law.md))
-- **`cognitive-load`** — memory demand is one source of load ([open](cognitive-load.md))
+- **`chunking`** — the actionable technique behind this law (`references/chunking.md`)
+- **`working-memory`** — the more current model of the same limit (`references/working-memory.md`)
+- **`hicks-law`** — a better guide for number of choices (`references/hicks-law.md`)
+- **`postels-law`** — accept chunked and unchunked input alike (`references/postels-law.md`)
+- **`cognitive-load`** — memory demand is one source of load (`references/cognitive-load.md`)

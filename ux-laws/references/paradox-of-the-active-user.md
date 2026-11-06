@@ -37,7 +37,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -54,8 +54,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`jakobs-law`** — familiar patterns need no teaching ([open](jakobs-law.md))
-- **`mental-model`** — users learn the model by doing ([open](mental-model.md))
-- **`selective-attention`** — why instructions get skipped ([open](selective-attention.md))
-- **`flow`** — tutorials interrupt the task users came for ([open](flow.md))
-- **`cognitive-load`** — learning competes with doing ([open](cognitive-load.md))
+- **`jakobs-law`** — familiar patterns need no teaching (`references/jakobs-law.md`)
+- **`mental-model`** — users learn the model by doing (`references/mental-model.md`)
+- **`selective-attention`** — why instructions get skipped (`references/selective-attention.md`)
+- **`flow`** — tutorials interrupt the task users came for (`references/flow.md`)
+- **`cognitive-load`** — learning competes with doing (`references/cognitive-load.md`)

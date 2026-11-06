@@ -33,7 +33,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -49,7 +49,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`law-of-common-region`** — a container is a related, heavier connection cue ([open](law-of-common-region.md))
-- **`law-of-proximity`** — connection beats proximity; check for conflicts ([open](law-of-proximity.md))
-- **`goal-gradient-effect`** — connected progress steppers make progress visible ([open](goal-gradient-effect.md))
-- **`mental-model`** — connections should mirror how users think things relate ([open](mental-model.md))
+- **`law-of-common-region`** — a container is a related, heavier connection cue (`references/law-of-common-region.md`)
+- **`law-of-proximity`** — connection beats proximity; check for conflicts (`references/law-of-proximity.md`)
+- **`goal-gradient-effect`** — connected progress steppers make progress visible (`references/goal-gradient-effect.md`)
+- **`mental-model`** — connections should mirror how users think things relate (`references/mental-model.md`)

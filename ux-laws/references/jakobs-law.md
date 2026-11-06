@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -52,8 +52,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`mental-model`** — conventions are shared mental models ([open](mental-model.md))
-- **`paradox-of-the-active-user`** — users won't read how a novel pattern works ([open](paradox-of-the-active-user.md))
-- **`law-of-similarity`** — consistency within your product ([open](law-of-similarity.md))
-- **`cognitive-load`** — familiarity reduces effort ([open](cognitive-load.md))
-- **`aesthetic-usability-effect`** — distinctive style without breaking conventions ([open](aesthetic-usability-effect.md))
+- **`mental-model`** — conventions are shared mental models (`references/mental-model.md`)
+- **`paradox-of-the-active-user`** — users won't read how a novel pattern works (`references/paradox-of-the-active-user.md`)
+- **`law-of-similarity`** — consistency within your product (`references/law-of-similarity.md`)
+- **`cognitive-load`** — familiarity reduces effort (`references/cognitive-load.md`)
+- **`aesthetic-usability-effect`** — distinctive style without breaking conventions (`references/aesthetic-usability-effect.md`)

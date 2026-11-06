@@ -33,7 +33,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -49,7 +49,7 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`goal-gradient-effect`** — progress toward completion motivates ([open](goal-gradient-effect.md))
-- **`working-memory`** — open loops occupy mental capacity ([open](working-memory.md))
-- **`peak-end-rule`** — how incomplete endings colour memory ([open](peak-end-rule.md))
-- **`flow`** — nagging open loops break focus ([open](flow.md))
+- **`goal-gradient-effect`** — progress toward completion motivates (`references/goal-gradient-effect.md`)
+- **`working-memory`** — open loops occupy mental capacity (`references/working-memory.md`)
+- **`peak-end-rule`** — how incomplete endings colour memory (`references/peak-end-rule.md`)
+- **`flow`** — nagging open loops break focus (`references/flow.md`)

@@ -17,7 +17,7 @@ REFS = SKILL_DIR / "references"
 EVIDENCE = {"static", "interactive", "code", "runtime", "context"}
 SEVERITIES = {"Blocker", "Major", "Minor"}
 TABLE_HEADER = "| ID | Severity | Evidence | Check |"
-MODE3_INTRO = ("Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: "
+MODE3_INTRO = ("Apply these under the review protocol in `SKILL.md` §5: "
                "evidence scope, severities, finding format and verdict.")
 SECTIONS = [
     "## The principle",
@@ -27,6 +27,13 @@ SECTIONS = [
     "## Tensions and misuse",
     "## Related laws",
 ]
+# Words that tie the skill to one agent harness. The skill must work in any
+# agent that can read files (Claude Code, Codex, OpenCode, ...).
+HARNESS_SPECIFIC = re.compile(
+    r"\b(Claude|Anthropic|OpenAI|ChatGPT|Codex|OpenCode|Cursor|Copilot|Gemini|Windsurf)\b"
+    r"|\.(claude|codex|opencode|cursor)/"
+    r"|\b(Read|Write|Edit|Grep|Glob|Bash|Skill|Task|WebFetch) tool\b"
+    r"|\bmcp__")
 # Protocol text that belongs only in SKILL.md; it drifts if copied into laws.
 PROTOCOL_ONLY = ["## Pick the mode", "Report each finding on one line", "\nVerdict:", "\nname:", "\ndescription:"]
 
@@ -57,6 +64,19 @@ else:
         err(SKILL, f"description is {len(desc)} chars; limit is 1024")
     if "<" in desc or ">" in desc:
         err(SKILL, "description must not contain angle brackets")
+    # Agent Skills spec (agentskills.io/specification)
+    name = meta.get("name", "")
+    if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name) or len(name) > 64:
+        err(SKILL, f"name {name!r} must be 1-64 chars of a-z, 0-9 and single hyphens")
+    # Plain (unquoted) YAML scalars break on ': ' and ' #'; some loaders split naively.
+    for bad in (": ", " #"):
+        if bad in desc and desc[:1] not in "'\"":
+            err(SKILL, f"description contains {bad!r}; reword it or quote the whole value")
+    extra = set(re.findall(r"^(\w[\w-]*):", fm.group(1), re.M)) - {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
+    if extra:
+        err(SKILL, f"frontmatter keys outside the Agent Skills spec: {sorted(extra)}")
+if skill.count("\n") > 500:
+    err(SKILL, f"SKILL.md has {skill.count(chr(10))} lines; the spec recommends under 500")
 
 # --- law reference files --------------------------------------------------
 codes = {}        # code -> slug
@@ -140,8 +160,11 @@ for ref in refs:
 
     # related laws: name matches its link
     rel = text.split("## Related laws", 1)[-1]
-    for name, target in re.findall(r"^- \*\*`([a-z-]+)`\*\* — .*?\(\[open\]\(([^)]+)\)\)$", rel, re.M):
-        if target != f"{name}.md":
+    entries = re.findall(r"^- \*\*`([a-z-]+)`\*\* — .*?\(`([^`]+)`\)$", rel, re.M)
+    if not entries:
+        err(ref, "Related laws has no entries in the form - **`law`** — reason (`references/law.md`)")
+    for name, target in entries:
+        if target != f"references/{name}.md":
             err(ref, f"related law `{name}` links to {target}")
         if name == slug:
             err(ref, "lists itself as a related law")
@@ -184,15 +207,29 @@ for path in [SKILL, ROOT / "README.md", *refs]:
         if f"{c}-{n}" not in check_ids:
             err(path, f"mentions check {c}-{n}, which does not exist")
 
-# --- relative links resolve -------------------------------------------------
-for path in [*SKILL_DIR.rglob("*.md"), ROOT / "README.md"]:
-    if "evals" in path.relative_to(SKILL_DIR if SKILL_DIR in path.parents else ROOT).parts:
-        continue
-    for target in re.findall(r"\]\(([^)\s]+)\)", read(path)):
+# --- paths -----------------------------------------------------------------
+# Inside the skill, every path is relative to the skill root (the folder with
+# SKILL.md), as the Agent Skills spec says, so agents resolve them the same
+# way from any file. Reference files therefore use `references/x.md` code
+# spans, not Markdown links (which would resolve relative to the file).
+skill_files = [p for p in SKILL_DIR.rglob("*.md") if "evals" not in p.relative_to(SKILL_DIR).parts]
+for path in skill_files:
+    text = read(path)
+    for target in re.findall(r"\]\(([^)\s]+)\)", text):
         if re.match(r"[a-z]+:", target) or target.startswith("#"):
             continue
-        if not (path.parent / target.split("#")[0]).exists():
+        if path != SKILL:
+            err(path, f"relative Markdown link {target!r}; write the skill-root path in a code span instead")
+        elif not (SKILL_DIR / target.split("#")[0]).exists():
             err(path, f"broken link: {target}")
+    for target in re.findall(r"`((?:references|scripts|assets)/[^`\s]+)`", text):
+        if not (SKILL_DIR / target).exists():
+            err(path, f"path `{target}` does not exist under the skill root")
+    for m in HARNESS_SPECIFIC.finditer(text):
+        err(path, f"harness-specific term {m.group(0)!r}; the skill must work in any agent")
+for target in re.findall(r"\]\(([^)\s]+)\)", read(ROOT / "README.md")):
+    if not re.match(r"[a-z]+:", target) and not target.startswith("#") and not (ROOT / target.split("#")[0]).exists():
+        err(ROOT / "README.md", f"broken link: {target}")
 
 # --- eval cases (layout read by skill-creator and `claude plugin eval`) -----
 PROMPT_KEYS = {"tags", "max_turns", "timeout_seconds", "allowed_tools"}

@@ -36,7 +36,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -53,8 +53,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`doherty-threshold`** — speed keeps flow intact ([open](doherty-threshold.md))
-- **`selective-attention`** — interruptions capture attention ([open](selective-attention.md))
-- **`cognitive-load`** — overload breaks flow ([open](cognitive-load.md))
-- **`goal-gradient-effect`** — clear progress sustains engagement ([open](goal-gradient-effect.md))
-- **`zeigarnik-effect`** — nagging open loops pull people out ([open](zeigarnik-effect.md))
+- **`doherty-threshold`** — speed keeps flow intact (`references/doherty-threshold.md`)
+- **`selective-attention`** — interruptions capture attention (`references/selective-attention.md`)
+- **`cognitive-load`** — overload breaks flow (`references/cognitive-load.md`)
+- **`goal-gradient-effect`** — clear progress sustains engagement (`references/goal-gradient-effect.md`)
+- **`zeigarnik-effect`** — nagging open loops pull people out (`references/zeigarnik-effect.md`)

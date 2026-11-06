@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -52,9 +52,9 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`serial-position-effect`** — primacy and recency in memory ([open](serial-position-effect.md))
-- **`aesthetic-usability-effect`** — how polish shapes remembered quality ([open](aesthetic-usability-effect.md))
-- **`doherty-threshold`** — a long wait can become the peak ([open](doherty-threshold.md))
-- **`goal-gradient-effect`** — how completion feels ([open](goal-gradient-effect.md))
-- **`cognitive-bias`** — memory bias in judging experiences ([open](cognitive-bias.md))
-- **`postels-law`** — error handling that keeps the bad moment small ([open](postels-law.md))
+- **`serial-position-effect`** — primacy and recency in memory (`references/serial-position-effect.md`)
+- **`aesthetic-usability-effect`** — how polish shapes remembered quality (`references/aesthetic-usability-effect.md`)
+- **`doherty-threshold`** — a long wait can become the peak (`references/doherty-threshold.md`)
+- **`goal-gradient-effect`** — how completion feels (`references/goal-gradient-effect.md`)
+- **`cognitive-bias`** — memory bias in judging experiences (`references/cognitive-bias.md`)
+- **`postels-law`** — error handling that keeps the bad moment small (`references/postels-law.md`)

@@ -36,7 +36,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -54,8 +54,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`hicks-law`** — fewer, larger options are faster to decide and hit ([open](hicks-law.md))
-- **`law-of-common-region`** — a bounded region defines the expected target ([open](law-of-common-region.md))
-- **`law-of-proximity`** — spacing between targets ([open](law-of-proximity.md))
-- **`pareto-principle`** — which targets deserve the best placement ([open](pareto-principle.md))
-- **`doherty-threshold`** — speed of feedback after the target is hit ([open](doherty-threshold.md))
+- **`hicks-law`** — fewer, larger options are faster to decide and hit (`references/hicks-law.md`)
+- **`law-of-common-region`** — a bounded region defines the expected target (`references/law-of-common-region.md`)
+- **`law-of-proximity`** — spacing between targets (`references/law-of-proximity.md`)
+- **`pareto-principle`** — which targets deserve the best placement (`references/pareto-principle.md`)
+- **`doherty-threshold`** — speed of feedback after the target is hit (`references/doherty-threshold.md`)

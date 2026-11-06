@@ -34,7 +34,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -52,8 +52,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`von-restorff-effect`** — deliberately breaking similarity to make one thing stand out ([open](von-restorff-effect.md))
-- **`jakobs-law`** — users bring similarity expectations from other products ([open](jakobs-law.md))
-- **`law-of-proximity`** — combine to express group and kind together ([open](law-of-proximity.md))
-- **`mental-model`** — consistent styling builds a reliable model ([open](mental-model.md))
-- **`law-of-pragnanz`** — consistent simple forms read as a family ([open](law-of-pragnanz.md))
+- **`von-restorff-effect`** — deliberately breaking similarity to make one thing stand out (`references/von-restorff-effect.md`)
+- **`jakobs-law`** — users bring similarity expectations from other products (`references/jakobs-law.md`)
+- **`law-of-proximity`** — combine to express group and kind together (`references/law-of-proximity.md`)
+- **`mental-model`** — consistent styling builds a reliable model (`references/mental-model.md`)
+- **`law-of-pragnanz`** — consistent simple forms read as a family (`references/law-of-pragnanz.md`)

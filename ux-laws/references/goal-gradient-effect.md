@@ -34,7 +34,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -50,8 +50,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`zeigarnik-effect`** — incomplete progress stays on the mind ([open](zeigarnik-effect.md))
-- **`peak-end-rule`** — how completion colours the memory ([open](peak-end-rule.md))
-- **`law-of-uniform-connectedness`** — connected steppers show progress ([open](law-of-uniform-connectedness.md))
-- **`chunking`** — group steps into stages ([open](chunking.md))
-- **`flow`** — clear progress supports engagement ([open](flow.md))
+- **`zeigarnik-effect`** — incomplete progress stays on the mind (`references/zeigarnik-effect.md`)
+- **`peak-end-rule`** — how completion colours the memory (`references/peak-end-rule.md`)
+- **`law-of-uniform-connectedness`** — connected steppers show progress (`references/law-of-uniform-connectedness.md`)
+- **`chunking`** — group steps into stages (`references/chunking.md`)
+- **`flow`** — clear progress supports engagement (`references/flow.md`)

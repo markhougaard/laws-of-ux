@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -54,8 +54,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`law-of-similarity`** — the uniform background that makes isolation work ([open](law-of-similarity.md))
-- **`selective-attention`** — why ad-like emphasis is skipped ([open](selective-attention.md))
-- **`serial-position-effect`** — position is another way to make items memorable ([open](serial-position-effect.md))
-- **`hicks-law`** — a clear primary option speeds decisions ([open](hicks-law.md))
-- **`cognitive-bias`** — emphasis can nudge, ethically or not ([open](cognitive-bias.md))
+- **`law-of-similarity`** — the uniform background that makes isolation work (`references/law-of-similarity.md`)
+- **`selective-attention`** — why ad-like emphasis is skipped (`references/selective-attention.md`)
+- **`serial-position-effect`** — position is another way to make items memorable (`references/serial-position-effect.md`)
+- **`hicks-law`** — a clear primary option speeds decisions (`references/hicks-law.md`)
+- **`cognitive-bias`** — emphasis can nudge, ethically or not (`references/cognitive-bias.md`)

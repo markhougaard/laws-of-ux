@@ -34,7 +34,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -51,8 +51,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`occams-razor`** — the same idea applied to features and decisions ([open](occams-razor.md))
-- **`cognitive-load`** — why simple forms are cheaper to process ([open](cognitive-load.md))
-- **`aesthetic-usability-effect`** — simplicity drives perceived quality ([open](aesthetic-usability-effect.md))
-- **`law-of-similarity`** — consistent forms are read as a family ([open](law-of-similarity.md))
-- **`mental-model`** — people simplify toward what they already know ([open](mental-model.md))
+- **`occams-razor`** — the same idea applied to features and decisions (`references/occams-razor.md`)
+- **`cognitive-load`** — why simple forms are cheaper to process (`references/cognitive-load.md`)
+- **`aesthetic-usability-effect`** — simplicity drives perceived quality (`references/aesthetic-usability-effect.md`)
+- **`law-of-similarity`** — consistent forms are read as a family (`references/law-of-similarity.md`)
+- **`mental-model`** — people simplify toward what they already know (`references/mental-model.md`)

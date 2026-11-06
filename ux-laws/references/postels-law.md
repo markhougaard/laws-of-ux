@@ -37,7 +37,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -56,8 +56,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`teslers-law`** — the system absorbs input complexity ([open](teslers-law.md))
-- **`millers-law`** — display in chunks, accept without them ([open](millers-law.md))
-- **`mental-model`** — users expect input to work as elsewhere ([open](mental-model.md))
-- **`jakobs-law`** — conventional formats and input patterns ([open](jakobs-law.md))
-- **`cognitive-load`** — strict formats add needless effort ([open](cognitive-load.md))
+- **`teslers-law`** — the system absorbs input complexity (`references/teslers-law.md`)
+- **`millers-law`** — display in chunks, accept without them (`references/millers-law.md`)
+- **`mental-model`** — users expect input to work as elsewhere (`references/mental-model.md`)
+- **`jakobs-law`** — conventional formats and input patterns (`references/jakobs-law.md`)
+- **`cognitive-load`** — strict formats add needless effort (`references/cognitive-load.md`)

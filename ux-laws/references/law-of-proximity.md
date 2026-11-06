@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -46,14 +46,14 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Tensions and misuse
 
-- A destructive action placed next to a safe one is checked once, as `FIT-2` in [Fitts's Law](fitts-law.md). Don't report it again here.
+- A destructive action placed next to a safe one is checked once, as `FIT-2` in Fitts's Law (`references/fitts-law.md`). Don't report it again here.
 - Common Region and Uniform Connectedness both override proximity; a border or line can undo careful spacing.
 - Dense, data-heavy tools need tighter spacing overall — keep the ratios, shrink the values.
 
 ## Related laws
 
-- **`law-of-common-region`** — use when space alone isn't strong enough ([open](law-of-common-region.md))
-- **`law-of-similarity`** — combine with proximity to show groups and kinds together ([open](law-of-similarity.md))
-- **`chunking`** — proximity is how chunks are shown on screen ([open](chunking.md))
-- **`fitts-law`** — spacing between targets also prevents mis-taps ([open](fitts-law.md))
-- **`law-of-uniform-connectedness`** — a competing grouping cue to watch for ([open](law-of-uniform-connectedness.md))
+- **`law-of-common-region`** — use when space alone isn't strong enough (`references/law-of-common-region.md`)
+- **`law-of-similarity`** — combine with proximity to show groups and kinds together (`references/law-of-similarity.md`)
+- **`chunking`** — proximity is how chunks are shown on screen (`references/chunking.md`)
+- **`fitts-law`** — spacing between targets also prevents mis-taps (`references/fitts-law.md`)
+- **`law-of-uniform-connectedness`** — a competing grouping cue to watch for (`references/law-of-uniform-connectedness.md`)

@@ -36,7 +36,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -54,9 +54,9 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`flow`** — speed preserves focused work ([open](flow.md))
-- **`peak-end-rule`** — slow moments can become the remembered peak ([open](peak-end-rule.md))
-- **`selective-attention`** — attention drifts while waiting ([open](selective-attention.md))
-- **`goal-gradient-effect`** — progress indicators sustain motivation ([open](goal-gradient-effect.md))
-- **`fitts-law`** — fast acquisition needs fast feedback ([open](fitts-law.md))
-- **`parkinsons-law`** — task time is the human half of speed ([open](parkinsons-law.md))
+- **`flow`** — speed preserves focused work (`references/flow.md`)
+- **`peak-end-rule`** — slow moments can become the remembered peak (`references/peak-end-rule.md`)
+- **`selective-attention`** — attention drifts while waiting (`references/selective-attention.md`)
+- **`goal-gradient-effect`** — progress indicators sustain motivation (`references/goal-gradient-effect.md`)
+- **`fitts-law`** — fast acquisition needs fast feedback (`references/fitts-law.md`)
+- **`parkinsons-law`** — task time is the human half of speed (`references/parkinsons-law.md`)

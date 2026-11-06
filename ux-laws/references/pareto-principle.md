@@ -34,7 +34,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -50,8 +50,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`hicks-law`** — promote the vital few, demote the rest ([open](hicks-law.md))
-- **`occams-razor`** — cut what serves nobody ([open](occams-razor.md))
-- **`teslers-law`** — who absorbs the complexity of the long tail ([open](teslers-law.md))
-- **`choice-overload`** — feature the options most people want ([open](choice-overload.md))
-- **`fitts-law`** — make the frequent targets the easiest to hit ([open](fitts-law.md))
+- **`hicks-law`** — promote the vital few, demote the rest (`references/hicks-law.md`)
+- **`occams-razor`** — cut what serves nobody (`references/occams-razor.md`)
+- **`teslers-law`** — who absorbs the complexity of the long tail (`references/teslers-law.md`)
+- **`choice-overload`** — feature the options most people want (`references/choice-overload.md`)
+- **`fitts-law`** — make the frequent targets the easiest to hit (`references/fitts-law.md`)

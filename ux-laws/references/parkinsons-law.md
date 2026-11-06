@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -52,8 +52,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`doherty-threshold`** — system speed, the other half of task speed ([open](doherty-threshold.md))
-- **`teslers-law`** — the system does the work so users don't ([open](teslers-law.md))
-- **`goal-gradient-effect`** — shorter remaining effort motivates ([open](goal-gradient-effect.md))
-- **`cognitive-bias`** — urgency as manipulation ([open](cognitive-bias.md))
-- **`occams-razor`** — remove unnecessary steps ([open](occams-razor.md))
+- **`doherty-threshold`** — system speed, the other half of task speed (`references/doherty-threshold.md`)
+- **`teslers-law`** — the system does the work so users don't (`references/teslers-law.md`)
+- **`goal-gradient-effect`** — shorter remaining effort motivates (`references/goal-gradient-effect.md`)
+- **`cognitive-bias`** — urgency as manipulation (`references/cognitive-bias.md`)
+- **`occams-razor`** — remove unnecessary steps (`references/occams-razor.md`)

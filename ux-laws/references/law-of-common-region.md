@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -53,8 +53,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`law-of-proximity`** — the lighter-weight alternative for grouping ([open](law-of-proximity.md))
-- **`law-of-uniform-connectedness`** — another grouping cue that beats proximity ([open](law-of-uniform-connectedness.md))
-- **`chunking`** — regions are a primary way to present chunks ([open](chunking.md))
-- **`fitts-law`** — a bounded clickable region defines the target size ([open](fitts-law.md))
-- **`cognitive-load`** — every container adds edges to process ([open](cognitive-load.md))
+- **`law-of-proximity`** — the lighter-weight alternative for grouping (`references/law-of-proximity.md`)
+- **`law-of-uniform-connectedness`** — another grouping cue that beats proximity (`references/law-of-uniform-connectedness.md`)
+- **`chunking`** — regions are a primary way to present chunks (`references/chunking.md`)
+- **`fitts-law`** — a bounded clickable region defines the target size (`references/fitts-law.md`)
+- **`cognitive-load`** — every container adds edges to process (`references/cognitive-load.md`)

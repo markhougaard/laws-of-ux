@@ -36,7 +36,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -53,9 +53,9 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`choice-overload`** — the emotional and satisfaction side of too many options ([open](choice-overload.md))
-- **`pareto-principle`** — decide which options deserve prominence ([open](pareto-principle.md))
-- **`cognitive-load`** — each option adds processing ([open](cognitive-load.md))
-- **`von-restorff-effect`** — make the recommended option stand out ([open](von-restorff-effect.md))
-- **`fitts-law`** — fewer, larger targets are also faster to hit ([open](fitts-law.md))
-- **`occams-razor`** — remove options that earn nothing ([open](occams-razor.md))
+- **`choice-overload`** — the emotional and satisfaction side of too many options (`references/choice-overload.md`)
+- **`pareto-principle`** — decide which options deserve prominence (`references/pareto-principle.md`)
+- **`cognitive-load`** — each option adds processing (`references/cognitive-load.md`)
+- **`von-restorff-effect`** — make the recommended option stand out (`references/von-restorff-effect.md`)
+- **`fitts-law`** — fewer, larger targets are also faster to hit (`references/fitts-law.md`)
+- **`occams-razor`** — remove options that earn nothing (`references/occams-razor.md`)

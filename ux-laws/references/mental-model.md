@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -52,8 +52,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`jakobs-law`** — models formed by other products ([open](jakobs-law.md))
-- **`paradox-of-the-active-user`** — people learn the model by using, not reading ([open](paradox-of-the-active-user.md))
-- **`teslers-law`** — complexity users must understand vs complexity the system hides ([open](teslers-law.md))
-- **`cognitive-bias`** — models are shaped by biases ([open](cognitive-bias.md))
-- **`law-of-similarity`** — consistent styling makes the model learnable ([open](law-of-similarity.md))
+- **`jakobs-law`** — models formed by other products (`references/jakobs-law.md`)
+- **`paradox-of-the-active-user`** — people learn the model by using, not reading (`references/paradox-of-the-active-user.md`)
+- **`teslers-law`** — complexity users must understand vs complexity the system hides (`references/teslers-law.md`)
+- **`cognitive-bias`** — models are shaped by biases (`references/cognitive-bias.md`)
+- **`law-of-similarity`** — consistent styling makes the model learnable (`references/law-of-similarity.md`)

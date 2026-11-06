@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -52,8 +52,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`millers-law`** — the origin of the concept ([open](millers-law.md))
-- **`law-of-proximity`** — the primary visual tool for showing chunks ([open](law-of-proximity.md))
-- **`law-of-common-region`** — a stronger visual chunk boundary ([open](law-of-common-region.md))
-- **`working-memory`** — chunking stretches limited capacity ([open](working-memory.md))
-- **`mental-model`** — chunks should match how users think ([open](mental-model.md))
+- **`millers-law`** — the origin of the concept (`references/millers-law.md`)
+- **`law-of-proximity`** — the primary visual tool for showing chunks (`references/law-of-proximity.md`)
+- **`law-of-common-region`** — a stronger visual chunk boundary (`references/law-of-common-region.md`)
+- **`working-memory`** — chunking stretches limited capacity (`references/working-memory.md`)
+- **`mental-model`** — chunks should match how users think (`references/mental-model.md`)

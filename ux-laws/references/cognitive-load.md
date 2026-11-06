@@ -37,7 +37,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -55,9 +55,9 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`working-memory`** — the capacity that load consumes ([open](working-memory.md))
-- **`chunking`** — a key technique for reducing load ([open](chunking.md))
-- **`hicks-law`** — every choice adds load ([open](hicks-law.md))
-- **`teslers-law`** — where irreducible complexity should go ([open](teslers-law.md))
-- **`jakobs-law`** — familiar patterns cost less to process ([open](jakobs-law.md))
-- **`selective-attention`** — attention is part of the same budget ([open](selective-attention.md))
+- **`working-memory`** — the capacity that load consumes (`references/working-memory.md`)
+- **`chunking`** — a key technique for reducing load (`references/chunking.md`)
+- **`hicks-law`** — every choice adds load (`references/hicks-law.md`)
+- **`teslers-law`** — where irreducible complexity should go (`references/teslers-law.md`)
+- **`jakobs-law`** — familiar patterns cost less to process (`references/jakobs-law.md`)
+- **`selective-attention`** — attention is part of the same budget (`references/selective-attention.md`)

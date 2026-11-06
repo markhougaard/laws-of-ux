@@ -35,7 +35,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -52,8 +52,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`teslers-law`** — the limit of simplification ([open](teslers-law.md))
-- **`law-of-pragnanz`** — simplicity in visual form ([open](law-of-pragnanz.md))
-- **`pareto-principle`** — focus on the parts that matter most ([open](pareto-principle.md))
-- **`cognitive-load`** — every element costs attention ([open](cognitive-load.md))
-- **`hicks-law`** — fewer options decide faster ([open](hicks-law.md))
+- **`teslers-law`** — the limit of simplification (`references/teslers-law.md`)
+- **`law-of-pragnanz`** — simplicity in visual form (`references/law-of-pragnanz.md`)
+- **`pareto-principle`** — focus on the parts that matter most (`references/pareto-principle.md`)
+- **`cognitive-load`** — every element costs attention (`references/cognitive-load.md`)
+- **`hicks-law`** — fewer options decide faster (`references/hicks-law.md`)

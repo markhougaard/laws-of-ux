@@ -36,7 +36,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -54,8 +54,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`von-restorff-effect`** — how to stand out without being filtered as noise ([open](von-restorff-effect.md))
-- **`cognitive-load`** — attention is a finite resource ([open](cognitive-load.md))
-- **`flow`** — interruptions break focused work ([open](flow.md))
-- **`working-memory`** — what users miss can't be held for later ([open](working-memory.md))
-- **`paradox-of-the-active-user`** — users skip instructions for the same reason ([open](paradox-of-the-active-user.md))
+- **`von-restorff-effect`** — how to stand out without being filtered as noise (`references/von-restorff-effect.md`)
+- **`cognitive-load`** — attention is a finite resource (`references/cognitive-load.md`)
+- **`flow`** — interruptions break focused work (`references/flow.md`)
+- **`working-memory`** — what users miss can't be held for later (`references/working-memory.md`)
+- **`paradox-of-the-active-user`** — users skip instructions for the same reason (`references/paradox-of-the-active-user.md`)

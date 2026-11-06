@@ -36,7 +36,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -53,9 +53,9 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`occams-razor`** — simplify the incidental complexity ([open](occams-razor.md))
-- **`postels-law`** — the system absorbing input variability ([open](postels-law.md))
-- **`mental-model`** — hidden complexity must still be predictable ([open](mental-model.md))
-- **`cognitive-load`** — the user-side cost of complexity ([open](cognitive-load.md))
-- **`pareto-principle`** — who carries long-tail complexity ([open](pareto-principle.md))
-- **`parkinsons-law`** — absorbed complexity shortens the user's task ([open](parkinsons-law.md))
+- **`occams-razor`** — simplify the incidental complexity (`references/occams-razor.md`)
+- **`postels-law`** — the system absorbing input variability (`references/postels-law.md`)
+- **`mental-model`** — hidden complexity must still be predictable (`references/mental-model.md`)
+- **`cognitive-load`** — the user-side cost of complexity (`references/cognitive-load.md`)
+- **`pareto-principle`** — who carries long-tail complexity (`references/pareto-principle.md`)
+- **`parkinsons-law`** — absorbed complexity shortens the user's task (`references/parkinsons-law.md`)

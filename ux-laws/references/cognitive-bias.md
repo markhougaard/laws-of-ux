@@ -36,7 +36,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -53,10 +53,10 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`aesthetic-usability-effect`** — the halo effect in usability findings ([open](aesthetic-usability-effect.md))
-- **`serial-position-effect`** — order effects as a bias lever ([open](serial-position-effect.md))
-- **`von-restorff-effect`** — emphasis as a bias lever ([open](von-restorff-effect.md))
-- **`choice-overload`** — how option sets drive decisions ([open](choice-overload.md))
-- **`peak-end-rule`** — memory biases in how experiences are judged ([open](peak-end-rule.md))
-- **`mental-model`** — biases shape the models users form ([open](mental-model.md))
-- **`parkinsons-law`** — fake urgency and countdowns as manipulation ([open](parkinsons-law.md))
+- **`aesthetic-usability-effect`** — the halo effect in usability findings (`references/aesthetic-usability-effect.md`)
+- **`serial-position-effect`** — order effects as a bias lever (`references/serial-position-effect.md`)
+- **`von-restorff-effect`** — emphasis as a bias lever (`references/von-restorff-effect.md`)
+- **`choice-overload`** — how option sets drive decisions (`references/choice-overload.md`)
+- **`peak-end-rule`** — memory biases in how experiences are judged (`references/peak-end-rule.md`)
+- **`mental-model`** — biases shape the models users form (`references/mental-model.md`)
+- **`parkinsons-law`** — fake urgency and countdowns as manipulation (`references/parkinsons-law.md`)

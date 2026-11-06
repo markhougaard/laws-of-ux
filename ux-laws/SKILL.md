@@ -1,6 +1,6 @@
 ---
 name: ux-laws
-description: Laws of UX (30 laws from lawsofux.com) for advising on a product or design direction, guiding UI design or front-end implementation, and strictly reviewing a design, prototype, screenshot or UI diff before committing. Use whenever UX or usability input is wanted, or when a specific law is named — Fitts, Hick, Jakob, Miller, Tesler, Postel, Parkinson, Pareto, Occam, Doherty, Zeigarnik, Von Restorff, peak-end, serial position, goal-gradient, aesthetic-usability, choice overload, chunking, cognitive load or bias, working memory, mental models, flow, selective attention, paradox of the active user, or the Gestalt laws of proximity, similarity, common region, uniform connectedness and Prägnanz.
+description: UX design guidance and strict UI reviews based on the 30 Laws of UX (lawsofux.com). Advises on a product or design direction, guides UI design and front-end implementation, and reviews a design, prototype, screenshot or UI diff before commit. Use whenever UX or usability input is wanted, or when a specific law is named — Fitts, Hick, Jakob, Miller, Tesler, Postel, Parkinson, Pareto, Occam, Doherty, Zeigarnik, Von Restorff, peak-end, serial position, goal-gradient, aesthetic-usability, choice overload, chunking, cognitive load or bias, working memory, mental models, flow, selective attention, paradox of the active user, or the Gestalt laws of proximity, similarity, common region, uniform connectedness and Prägnanz.
 ---
 
 # Laws of UX — index and protocol
@@ -8,6 +8,14 @@ description: Laws of UX (30 laws from lawsofux.com) for advising on a product or
 This file picks the mode, selects which of the 30 laws apply, and defines how they're used together and how to report. Each law lives in its own file under [`references/`](references/), named as in the tables below (`fitts-law` → `references/fitts-law.md`). Open only the ones you select.
 
 **If the user names one law** ("review this form against Postel's Law"), open just that reference and use it in the mode they asked for. Reviews still follow section 5 here.
+
+## 0. Files and environment
+
+This skill works in any agent that can read files. It doesn't depend on particular tools.
+
+- **Paths** in every file of this skill, the references included, are relative to the directory that contains this `SKILL.md`. `references/fitts-law.md` always means `<skill directory>/references/fitts-law.md`, even when it appears inside another reference file.
+- **If you can't open the reference files** (for example this text was pasted into a prompt without its folder), say so and ask for the law files you need. Don't run checks from memory: the check IDs, severities and evidence kinds are defined only in those files.
+- **Evidence depends on what you can inspect.** If you can't view images, screenshots and mocks don't count as `static` evidence for you; review whatever text or code you have and say so on the scope line. If you can't run the artifact, `interactive` and `runtime` are out of scope unless the user supplies recordings or measurements.
 
 ## 1. Pick the mode
 

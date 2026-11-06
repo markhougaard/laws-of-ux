@@ -37,7 +37,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -56,8 +56,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`law-of-pragnanz`** — simple, clear forms are a large part of what reads as attractive ([open](law-of-pragnanz.md))
-- **`occams-razor`** — keeps polish from turning into ornament ([open](occams-razor.md))
-- **`peak-end-rule`** — attractive peaks and endings shape remembered quality ([open](peak-end-rule.md))
-- **`cognitive-bias`** — the halo effect behind this law, and how it skews research ([open](cognitive-bias.md))
-- **`jakobs-law`** — conventions keep a distinctive look from becoming unfamiliar ([open](jakobs-law.md))
+- **`law-of-pragnanz`** — simple, clear forms are a large part of what reads as attractive (`references/law-of-pragnanz.md`)
+- **`occams-razor`** — keeps polish from turning into ornament (`references/occams-razor.md`)
+- **`peak-end-rule`** — attractive peaks and endings shape remembered quality (`references/peak-end-rule.md`)
+- **`cognitive-bias`** — the halo effect behind this law, and how it skews research (`references/cognitive-bias.md`)
+- **`jakobs-law`** — conventions keep a distinctive look from becoming unfamiliar (`references/jakobs-law.md`)

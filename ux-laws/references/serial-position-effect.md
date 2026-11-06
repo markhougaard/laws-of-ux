@@ -34,7 +34,7 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence scope, severities, finding format and verdict.
+Apply these under the review protocol in `SKILL.md` §5: evidence scope, severities, finding format and verdict.
 
 | ID | Severity | Evidence | Check |
 |---|---|---|---|
@@ -50,8 +50,8 @@ Apply these under the review protocol in [`SKILL.md`](../SKILL.md) §5: evidence
 
 ## Related laws
 
-- **`von-restorff-effect`** — the other way to make an item memorable ([open](von-restorff-effect.md))
-- **`working-memory`** — why the middle fades ([open](working-memory.md))
-- **`peak-end-rule`** — the experiential version of primacy and recency ([open](peak-end-rule.md))
-- **`cognitive-bias`** — order effects as influence ([open](cognitive-bias.md))
-- **`jakobs-law`** — conventional positions for common items ([open](jakobs-law.md))
+- **`von-restorff-effect`** — the other way to make an item memorable (`references/von-restorff-effect.md`)
+- **`working-memory`** — why the middle fades (`references/working-memory.md`)
+- **`peak-end-rule`** — the experiential version of primacy and recency (`references/peak-end-rule.md`)
+- **`cognitive-bias`** — order effects as influence (`references/cognitive-bias.md`)
+- **`jakobs-law`** — conventional positions for common items (`references/jakobs-law.md`)
