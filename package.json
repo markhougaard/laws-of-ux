@@ -1,0 +1,43 @@
+{
+  "name": "@markhougaard/laws-of-ux",
+  "version": "0.1.0",
+  "description": "Laws of UX as an agent skill: advise, build and strictly review UI against the 30 laws on lawsofux.com. Installs into Claude Code, Codex, OpenCode or any agent.",
+  "keywords": [
+    "agent-skills",
+    "skill",
+    "ux",
+    "usability",
+    "design-review",
+    "laws-of-ux",
+    "claude-code",
+    "codex",
+    "opencode"
+  ],
+  "homepage": "https://github.com/markhougaard/laws-of-ux#readme",
+  "bugs": "https://github.com/markhougaard/laws-of-ux/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markhougaard/laws-of-ux.git"
+  },
+  "license": "MIT",
+  "author": "Mark Hougaard",
+  "bin": {
+    "ux-laws": "bin/ux-laws.js"
+  },
+  "files": [
+    "bin/",
+    "ux-laws/SKILL.md",
+    "ux-laws/references/"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "lint": "python3 scripts/lint.py",
+    "test": "node scripts/test-cli.js",
+    "prepublishOnly": "npm run lint && npm test"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

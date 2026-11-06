@@ -8,7 +8,7 @@ harness.
 For each case it:
   1. makes a fresh working folder (a git repo, since some CLIs expect one),
      copies the case's input files into it, and installs the skill there with
-     scripts/install.sh for the chosen harness (unless --no-skill);
+     bin/ux-laws.js for the chosen harness (unless --no-skill);
   2. runs the agent command in that folder with the case prompt and saves its
      final answer to response.md;
   3. asks the judge command whether the answer meets each grader statement
@@ -49,7 +49,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 EVALS = ROOT / "ux-laws" / "evals"
-INSTALL = ROOT / "scripts" / "install.sh"
+CLI = ROOT / "bin" / "ux-laws.js"
 
 PRESETS = {
     "claude": "claude -p {prompt} --allowedTools Read,Glob,Grep,Skill",
@@ -61,7 +61,7 @@ JUDGE_PRESETS = {
     "codex": "codex exec --output-last-message {output} {prompt}",
     "opencode": "opencode run {prompt}",
 }
-# Which install.sh --harness each preset discovers skills from.
+# Which `ux-laws install -H` target each preset discovers skills from.
 INSTALL_AS = {"claude": "claude", "codex": "codex", "opencode": "opencode"}
 
 JUDGE_PROMPT = """You are grading one assertion about an AI agent's answer to a UX review task.
@@ -147,7 +147,7 @@ def prepare_workdir(case, base, install_as, agents_md):
         shutil.copytree(files, work, dirs_exist_ok=True)
     subprocess.run(["git", "init", "-q"], cwd=work, check=True)
     if install_as:
-        cmd = [str(INSTALL), "-p", str(work), "-H", install_as, "-f"]
+        cmd = ["node", str(CLI), "install", "-p", str(work), "-H", install_as, "-f"]
         if agents_md:
             cmd += ["-a", str(work / "AGENTS.md")]
         subprocess.run(cmd, check=True, capture_output=True)

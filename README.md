@@ -23,10 +23,11 @@ laws-of-ux/
 │   │   ├── fitts-law.md
 │   │   ├── hicks-law.md
 │   │   └── … 28 more, one file per law
-│   └── evals/                       ← test cases; not installed
+│   └── evals/                       ← test cases; not installed or published
+├── bin/ux-laws.js                   ← the installer CLI shipped in the npm package
 └── scripts/
-    ├── install.sh                   ← install for Claude Code, Codex, OpenCode or any agent
     ├── lint.py                      ← structure and spec checks
+    ├── test-cli.js                  ← tests for the installer
     └── run_evals.py                 ← run the evals with any harness
 ```
 
@@ -47,9 +48,22 @@ Review is strict by design: a check passes only on evidence, and any Blocker mea
 
 ## Installing
 
-`scripts/install.sh` copies `ux-laws` (without its evals) to where each harness looks for skills:
+You need Node 18 or later. One command installs the skill for Claude Code, Codex and OpenCode in your home directory:
 
-| Harness | `scripts/install.sh …` | Installs to (user / project) |
+```sh
+npx @markhougaard/laws-of-ux install
+```
+
+Or install the command globally and use `ux-laws` directly:
+
+```sh
+npm install -g @markhougaard/laws-of-ux
+ux-laws install
+```
+
+Choose the harness and scope with options:
+
+| Harness | `ux-laws install …` | Installs to (user / project) |
 |---|---|---|
 | Claude Code | `-H claude` | `~/.claude/skills/` / `.claude/skills/` |
 | Codex | `-H codex` | `~/.agents/skills/` / `.agents/skills/` |
@@ -57,11 +71,14 @@ Review is strict by design: a check passes only on evidence, and any Blocker mea
 | Several at once | `-H claude,codex` or no `-H` (default `all`) | `.claude/skills/` and `.agents/skills/`; OpenCode reads both |
 | Anything else | `-d <skills dir>` | `<skills dir>/ux-laws/` |
 
-- Add `-p` to install into the current project, so the skill can be shared with the team through the repo, instead of into your home directory. You can also give a path: `-p ../my-app`.
-- `-l` symlinks to this checkout, so a `git pull` updates the skill. `-f` replaces an existing install, and `-u` removes it.
-- Installing by hand works too: copy the `ux-laws` folder into the harness's skills directory. Keep `references/` next to `SKILL.md`.
+- `-p` installs into the current project instead, so the team gets the skill through the repo. You can also give a path: `-p ../my-app`.
+- `-f` replaces an existing install, for example after an upgrade: `npx @markhougaard/laws-of-ux@latest install -f`.
+- `-l` symlinks instead of copying. Use it with a global install or a git checkout, not with `npx`, whose cache can be cleared.
+- `ux-laws uninstall` takes the same options. `ux-laws path` prints where the packaged skill is.
 
-**Agents without skill support.** Run `scripts/install.sh -d <dir> -a AGENTS.md` (or `-p … -a AGENTS.md`). It adds a short block to `AGENTS.md`, or whichever instructions file your agent reads, saying when to use the skill and where `SKILL.md` is. Running it again refreshes the block instead of adding a second one. You can also paste `ux-laws/SKILL.md` into the system prompt: the agent then opens `references/<law>.md` as needed, and if it can't read files it says so instead of reviewing from memory.
+The skill is copied, not referenced, so it keeps working after `npx` exits. Installing by hand works too: copy the `ux-laws` folder (with `references/`, without `evals/`) into the harness's skills directory.
+
+**Agents without skill support.** `ux-laws install -d <dir> -a AGENTS.md` (or `-p … -a AGENTS.md`) adds a short block to `AGENTS.md`, or whichever instructions file your agent reads, saying when to use the skill and where `SKILL.md` is. Running it again refreshes the block instead of adding a second one. You can also paste `ux-laws/SKILL.md` into the system prompt: the agent then opens `references/<law>.md` as needed, and if it can't read files it says so instead of reviewing from memory.
 
 The skill doesn't depend on any one harness's tools. It needs only the ability to read files, plus whatever you give it to review. Image support decides whether screenshots count as `static` evidence, and the review's scope line says so.
 
@@ -76,6 +93,7 @@ Good candidates for adapting to your own product:
 
 ## Maintaining
 
+- **Tests:** `npm test` runs the installer tests against a throwaway home directory. `npm run lint` runs the lint script. Both also run in CI and before `npm publish`.
 - **Lint:** `python3 scripts/lint.py` (standard library only) checks:
   - the frontmatter and that every law has its sections in order
   - that check IDs are sequential and match the law's code, and that every severity and evidence kind is valid
@@ -99,3 +117,7 @@ Good candidates for adapting to your own product:
 ## Attribution
 
 The list of laws follows [Laws of UX](https://lawsofux.com/) by Jon Yablonski (site content licensed CC BY-NC-ND 4.0). The text in these files is written independently from the underlying research and doesn't reproduce the site's content; each law links to its page on the site. The book *Laws of UX* (O'Reilly) covers the laws in more depth.
+
+## License
+
+MIT, see [LICENSE](LICENSE). That covers the text and code in this repository, not the content of lawsofux.com.
