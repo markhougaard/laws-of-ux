@@ -1,6 +1,6 @@
 # Laws of UX — agent skill
 
-One skill, `ux-laws`, covering all 30 laws on [lawsofux.com](https://lawsofux.com/). Its `SKILL.md` picks the mode, selects the relevant laws and defines the review protocol. Each law is a reference file the agent opens only when it's needed, so the 30 laws cost no context until they're used.
+One skill, `ux-laws`, covering all 30 laws on [lawsofux.com](https://lawsofux.com/). It follows the open [Agent Skills](https://agentskills.io/specification) format, so it works in Claude Code, Codex, OpenCode and any other agent that can read files. Its `SKILL.md` picks the mode, selects the relevant laws and defines the review protocol. Each law is a reference file the agent opens only when it's needed, so the 30 laws cost no context until they're used.
 
 ## Three ways to use it
 
@@ -17,13 +17,20 @@ Every law file contains all three modes, so you can also name a single law ("rev
 ```
 laws-of-ux/
 ├── README.md
-└── ux-laws/
-    ├── SKILL.md                     ← modes, law selection, review protocol, evidence kinds, severities, report format
-    └── references/
-        ├── fitts-law.md
-        ├── hicks-law.md
-        └── … 28 more, one file per law
+├── ux-laws/                         ← the skill: this folder is what gets installed
+│   ├── SKILL.md                     ← modes, law selection, review protocol, evidence kinds, severities, report format
+│   ├── references/
+│   │   ├── fitts-law.md
+│   │   ├── hicks-law.md
+│   │   └── … 28 more, one file per law
+│   └── evals/                       ← test cases; not installed
+└── scripts/
+    ├── install.sh                   ← install for Claude Code, Codex, OpenCode or any agent
+    ├── lint.py                      ← structure and spec checks
+    └── run_evals.py                 ← run the evals with any harness
 ```
+
+All paths inside the skill are relative to the `ux-laws/` folder, as the Agent Skills spec requires, so every harness resolves them the same way.
 
 Each law file has:
 
@@ -40,11 +47,23 @@ Review is strict by design: a check passes only on evidence, and any Blocker mea
 
 ## Installing
 
-- **Claude Code:** copy the `ux-laws` folder into `.claude/skills/` in a repository (team-shared) or `~/.claude/skills/` (personal).
-- **Claude apps:** zip the `ux-laws` folder and upload it in Claude's skills settings, or package it as a plugin.
-- **Other agents:** `SKILL.md` is plain Markdown with `name` and `description` frontmatter. Include it in the system prompt and let the agent open `references/<law>.md` by path.
+`scripts/install.sh` copies `ux-laws` (without its evals) to where each harness looks for skills:
 
-Keep `references/` next to `SKILL.md`. All links are relative.
+| Harness | `scripts/install.sh …` | Installs to (user / project) |
+|---|---|---|
+| Claude Code | `-H claude` | `~/.claude/skills/` / `.claude/skills/` |
+| Codex | `-H codex` | `~/.agents/skills/` / `.agents/skills/` |
+| OpenCode | `-H opencode` | `~/.config/opencode/skills/` / `.opencode/skills/` |
+| Several at once | `-H claude,codex` or no `-H` (default `all`) | `.claude/skills/` and `.agents/skills/`; OpenCode reads both |
+| Anything else | `-d <skills dir>` | `<skills dir>/ux-laws/` |
+
+- Add `-p` to install into the current project, so the skill can be shared with the team through the repo, instead of into your home directory. You can also give a path: `-p ../my-app`.
+- `-l` symlinks to this checkout, so a `git pull` updates the skill. `-f` replaces an existing install, and `-u` removes it.
+- Installing by hand works too: copy the `ux-laws` folder into the harness's skills directory. Keep `references/` next to `SKILL.md`.
+
+**Agents without skill support.** Run `scripts/install.sh -d <dir> -a AGENTS.md` (or `-p … -a AGENTS.md`). It adds a short block to `AGENTS.md`, or whichever instructions file your agent reads, saying when to use the skill and where `SKILL.md` is. Running it again refreshes the block instead of adding a second one. You can also paste `ux-laws/SKILL.md` into the system prompt: the agent then opens `references/<law>.md` as needed, and if it can't read files it says so instead of reviewing from memory.
+
+The skill doesn't depend on any one harness's tools. It needs only the ability to read files, plus whatever you give it to review. Image support decides whether screenshots count as `static` evidence, and the review's scope line says so.
 
 ## Customising
 
@@ -64,8 +83,18 @@ Good candidates for adapting to your own product:
   - that every check ID mentioned anywhere (including in the evals) exists
   - that relative links resolve, the eval cases have the layout their runner expects, and no protocol text has been copied back into a law file
 
-  It exits 1 if anything is wrong. Run it before every commit.
-- **Evals:** `ux-laws/evals/` holds review cases with input files and one grader per expected finding or verdict. They cover a flawed sign-up page (code), a clean static mock (expected *Pass (static scope)*), a static form with no error state (expected *Blocked pending evidence*), and a single-law review. Run them from `ux-laws/` with `claude plugin eval . --scaffold`. These are real, billed model runs, with and without the skill. You can leave `evals/` out when you install the skill.
+  It also checks the [Agent Skills spec](https://agentskills.io/specification) rules for name and frontmatter, that paths inside the skill are relative to the skill root, and that no harness-specific wording has got into the skill. It exits 1 if anything is wrong. Run it before every commit.
+- **Evals:** `ux-laws/evals/` holds review cases with input files and one grader per expected finding or verdict. They cover a flawed sign-up page (code), a clean static mock (expected *Pass (static scope)*), a static form with no error state (expected *Blocked pending evidence*), and a single-law review. Run them with any harness:
+
+  ```sh
+  scripts/run_evals.py --list                              # show cases; runs nothing
+  scripts/run_evals.py --agent codex                       # Codex answers and judges
+  scripts/run_evals.py --agent opencode --judge claude     # mix harnesses
+  scripts/run_evals.py --agent codex --no-skill            # baseline without the skill
+  scripts/run_evals.py --agent-cmd 'my-agent {prompt}' --judge-cmd 'my-llm {prompt}' --agents-md
+  ```
+
+  Each case runs in a fresh folder with the skill installed where that harness discovers it, so the evals also test whether the skill gets triggered. Results go to `eval-runs/`. The presets use `claude -p`, `codex exec` and `opencode run`; check their flags against `--help` for your installed version. The same case folders also work with `claude plugin eval . --scaffold`, run from `ux-laws/`. Every run is a real model run, billed by whichever provider each CLI uses.
 
 ## Attribution
 
