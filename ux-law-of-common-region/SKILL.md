@@ -48,22 +48,22 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| CR-1 | Blocker | A control sits outside the region it acts on, or inside a region it doesn't act on, so users could act on the wrong item. |
-| CR-2 | Major | Three or more levels of visibly bounded containers are nested on one screen. |
-| CR-3 | Major | A bounded region looks clickable as a whole but only part of it responds (or the reverse). |
-| CR-4 | Major | Items that belong to different groups share one container, or one group is split across containers. |
-| CR-5 | Minor | Container styles (radius, border, fill, padding) vary for the same level of hierarchy. |
-| CR-6 | Minor | A border or fill groups things that spacing alone would have grouped clearly. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| CR-1 | Blocker | static | A control sits outside the region it acts on, or inside a region it doesn't act on, so users could act on the wrong item. |
+| CR-2 | Major | static | Three or more levels of visibly bounded containers are nested on one screen. |
+| CR-3 | Major | interactive, code | A bounded region looks clickable as a whole but only part of it responds (or the reverse). |
+| CR-4 | Major | static | Items that belong to different groups share one container, or one group is split across containers. |
+| CR-5 | Minor | static | Container styles (radius, border, fill, padding) vary for the same level of hierarchy. |
+| CR-6 | Minor | static | A border or fill groups things that spacing alone would have grouped clearly. |
 
 Report each finding on one line:
 
 `[SEVERITY] CR-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

@@ -47,20 +47,20 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| PAR-1 | Blocker | A critical but rare function (recovery, export, accessibility settings, cancellation) has been removed or made unfindable on 'low usage' grounds. |
-| PAR-2 | Major | The most frequent tasks are not on the shortest, most prominent paths. |
-| PAR-3 | Major | Prioritisation rests on assumptions with no usage or research data. |
-| PAR-4 | Minor | Design effort is visibly concentrated on low-impact areas while core flows have known issues. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| PAR-1 | Blocker | context | A critical but rare function (recovery, export, accessibility settings, cancellation) has been removed or made unfindable on 'low usage' grounds. |
+| PAR-2 | Major | context | The most frequent tasks are not on the shortest, most prominent paths. |
+| PAR-3 | Major | context | Prioritisation rests on assumptions with no usage or research data. |
+| PAR-4 | Minor | context | Design effort is visibly concentrated on low-impact areas while core flows have known issues. |
 
 Report each finding on one line:
 
 `[SEVERITY] PAR-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

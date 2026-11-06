@@ -49,21 +49,21 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| CB-1 | Blocker | The design uses a deceptive pattern: hidden costs, pre-ticked consent, confirm-shaming, fake urgency or scarcity, a hard-to-find cancel, or asymmetric accept/reject effort. |
-| CB-2 | Blocker | Defaults expose users to cost, risk or data sharing that a well-informed user would be unlikely to choose. |
-| CB-3 | Major | Comparable options are framed inconsistently (different units, hidden totals, selective anchors). |
-| CB-4 | Major | A design decision is justified by research that was interpreted without predefined criteria, or by one confirming anecdote. |
-| CB-5 | Minor | Option order or emphasis nudges without a user-benefit rationale written down. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| CB-1 | Blocker | static, interactive | The design uses a deceptive pattern: hidden costs, pre-ticked consent, confirm-shaming, fake urgency or scarcity, a hard-to-find cancel, or asymmetric accept/reject effort. |
+| CB-2 | Blocker | static | Defaults expose users to cost, risk or data sharing that a well-informed user would be unlikely to choose. |
+| CB-3 | Major | static | Comparable options are framed inconsistently (different units, hidden totals, selective anchors). |
+| CB-4 | Major | context | A design decision is justified by research that was interpreted without predefined criteria, or by one confirming anecdote. |
+| CB-5 | Minor | context | Option order or emphasis nudges without a user-benefit rationale written down. |
 
 Report each finding on one line:
 
 `[SEVERITY] CB-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

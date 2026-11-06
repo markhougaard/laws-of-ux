@@ -50,22 +50,22 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| WM-1 | Blocker | A login or verification step requires transcribing or remembering a value with no paste, autofill or alternative (WCAG 3.3.8). |
-| WM-2 | Blocker | Information entered earlier in the same process must be re-entered (WCAG 3.3.7), outside the allowed exceptions. |
-| WM-3 | Major | Users must compare options across separate screens or modals without a side-by-side view. |
-| WM-4 | Major | Instructions or reference data needed for a step are shown only before that step. |
-| WM-5 | Major | An interruption (navigating away, a timeout) loses entered data with no recovery. |
-| WM-6 | Minor | Current context (selection, filters, location in a flow) isn't visible on screen. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| WM-1 | Blocker | interactive, code | A login or verification step requires transcribing or remembering a value with no paste, autofill or alternative (WCAG 3.3.8). |
+| WM-2 | Blocker | static | Information entered earlier in the same process must be re-entered (WCAG 3.3.7), outside the allowed exceptions. |
+| WM-3 | Major | static | Users must compare options across separate screens or modals without a side-by-side view. |
+| WM-4 | Major | static | Instructions or reference data needed for a step are shown only before that step. |
+| WM-5 | Major | interactive | An interruption (navigating away, a timeout) loses entered data with no recovery. |
+| WM-6 | Minor | static | Current context (selection, filters, location in a flow) isn't visible on screen. |
 
 Report each finding on one line:
 
 `[SEVERITY] WM-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

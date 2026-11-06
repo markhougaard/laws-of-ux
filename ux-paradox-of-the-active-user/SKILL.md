@@ -50,21 +50,21 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| PAU-1 | Blocker | A core task can't be completed without reading external documentation or completing a tutorial. |
-| PAU-2 | Major | Onboarding is mandatory, long or unskippable. |
-| PAU-3 | Major | Exploration is risky: actions are irreversible with no undo or preview. |
-| PAU-4 | Major | Important capabilities are discoverable only through documentation. |
-| PAU-5 | Minor | Empty states are blank or say only 'no data'. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| PAU-1 | Blocker | interactive | A core task can't be completed without reading external documentation or completing a tutorial. |
+| PAU-2 | Major | interactive | Onboarding is mandatory, long or unskippable. |
+| PAU-3 | Major | interactive | Exploration is risky: actions are irreversible with no undo or preview. |
+| PAU-4 | Major | static, context | Important capabilities are discoverable only through documentation. |
+| PAU-5 | Minor | static | Empty states are blank or say only 'no data'. |
 
 Report each finding on one line:
 
 `[SEVERITY] PAU-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

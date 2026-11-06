@@ -48,21 +48,21 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| PKL-1 | Blocker | A time limit expires without warning or a way to extend it, outside WCAG 2.2.1 exceptions. |
-| PKL-2 | Major | A form asks for information the system already has or doesn't need for the current purpose. |
-| PKL-3 | Major | Autofill or autocomplete is missing or broken on personal-data fields (WCAG 1.3.5). |
-| PKL-4 | Major | Artificial urgency (countdowns, 'only today') is used without a real deadline. |
-| PKL-5 | Minor | Expected duration isn't communicated for tasks longer than a few minutes. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| PKL-1 | Blocker | interactive, code | A time limit expires without warning or a way to extend it, outside WCAG 2.2.1 exceptions. |
+| PKL-2 | Major | static | A form asks for information the system already has or doesn't need for the current purpose. |
+| PKL-3 | Major | code | Autofill or autocomplete is missing or broken on personal-data fields (WCAG 1.3.5). |
+| PKL-4 | Major | context | Artificial urgency (countdowns, 'only today') is used without a real deadline. |
+| PKL-5 | Minor | static | Expected duration isn't communicated for tasks longer than a few minutes. |
 
 Report each finding on one line:
 
 `[SEVERITY] PKL-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

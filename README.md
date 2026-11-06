@@ -28,11 +28,11 @@ Each law's `SKILL.md` has:
 - **The principle** — what it is, where it comes from, and its known limits
 - **Mode 1 — Advise** — questions to put to the team, and where to steer
 - **Mode 2 — Build** — concrete practices and values (target sizes, timings, WCAG criteria)
-- **Mode 3 — Review** — numbered checks (for example `FIT-1`) with Blocker / Major / Minor severity, a one-line finding format, and a verdict rule
+- **Mode 3 — Review** — numbered checks (for example `FIT-1`) with Blocker / Major / Minor severity, the kind of evidence each needs (`static`, `interactive`, `code`, `runtime`, `context`), a one-line finding format, and a verdict rule
 - **Tensions and misuse** — where it conflicts with other laws or is commonly misapplied
 - **Related skills** — the most relevant other laws, with the reason, as relative links
 
-Review is strict by design: a check passes only on evidence; anything that can't be verified is reported as `UNVERIFIED`; any Blocker means *do not commit*.
+Review is strict by design: a check passes only on evidence, and any Blocker means *do not commit*. Every verdict states its evidence scope. A screenshot review can return **Pass (static scope)**, but it must list the Blocker checks it couldn't cover (for example keyboard behaviour, which needs `interactive` evidence), so a partial review never reads as a full pass. A check whose evidence kind was supplied but whose state is missing, such as an error screen nobody provided, is `UNVERIFIED` and blocks the verdict.
 
 ## Installing
 

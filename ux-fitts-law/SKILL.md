@@ -49,22 +49,22 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| FIT-1 | Blocker | An interactive target on a supported touch interface is smaller than 24×24 CSS px with insufficient spacing (fails WCAG 2.5.8). |
-| FIT-2 | Blocker | A destructive action is adjacent to a frequently used action with no separation and no confirmation or undo. |
-| FIT-3 | Major | Primary or frequent touch targets are smaller than 44×44 pt or 48×48 dp. |
-| FIT-4 | Major | A frequently used action sits far from where the user's attention or pointer is during the task. |
-| FIT-5 | Major | A visually unified element (card, row, label) responds to only part of its area. |
-| FIT-6 | Minor | Adjacent targets have less than about 8 px between them. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| FIT-1 | Blocker | static | An interactive target on a supported touch interface is smaller than 24×24 CSS px with insufficient spacing (fails WCAG 2.5.8). |
+| FIT-2 | Blocker | static | A destructive action is adjacent to a frequently used action with no separation and no confirmation or undo. |
+| FIT-3 | Major | static | Primary or frequent touch targets are smaller than 44×44 pt or 48×48 dp. |
+| FIT-4 | Major | static | A frequently used action sits far from where the user's attention or pointer is during the task. |
+| FIT-5 | Major | interactive, code | A visually unified element (card, row, label) responds to only part of its area. |
+| FIT-6 | Minor | static | Adjacent targets have less than about 8 px between them. |
 
 Report each finding on one line:
 
 `[SEVERITY] FIT-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

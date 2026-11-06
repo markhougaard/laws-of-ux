@@ -47,22 +47,22 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| SIM-1 | Blocker | A non-interactive element looks interactive, or an interactive element looks static, in a way that blocks or misleads a core task. |
-| SIM-2 | Blocker | Meaning is conveyed by colour alone, with no text, shape or pattern backup (WCAG 1.4.1). |
-| SIM-3 | Major | Elements with different behaviours share the same visual treatment (for example the same style for navigate and submit). |
-| SIM-4 | Major | Elements with the same role are styled inconsistently across screens. |
-| SIM-5 | Major | A semantic colour (error, success, warning) is reused decoratively. |
-| SIM-6 | Minor | Near-duplicate component variants exist where one would do. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| SIM-1 | Blocker | static | A non-interactive element looks interactive, or an interactive element looks static, in a way that blocks or misleads a core task. |
+| SIM-2 | Blocker | static | Meaning is conveyed by colour alone, with no text, shape or pattern backup (WCAG 1.4.1). |
+| SIM-3 | Major | static, interactive | Elements with different behaviours share the same visual treatment (for example the same style for navigate and submit). |
+| SIM-4 | Major | static | Elements with the same role are styled inconsistently across screens. |
+| SIM-5 | Major | static | A semantic colour (error, success, warning) is reused decoratively. |
+| SIM-6 | Minor | static, code | Near-duplicate component variants exist where one would do. |
 
 Report each finding on one line:
 
 `[SEVERITY] SIM-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

@@ -48,20 +48,20 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| CO-1 | Major | Users face a large set of options with no filtering, sorting, comparison or recommendation. |
-| CO-2 | Major | Options differ in ways that aren't visible without opening each one. |
-| CO-3 | Major | A required choice has no default and no 'decide later' path where one would be safe. |
-| CO-4 | Minor | Plan or tier differences aren't presented in a directly comparable layout. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| CO-1 | Major | static | Users face a large set of options with no filtering, sorting, comparison or recommendation. |
+| CO-2 | Major | static | Options differ in ways that aren't visible without opening each one. |
+| CO-3 | Major | static | A required choice has no default and no 'decide later' path where one would be safe. |
+| CO-4 | Minor | static | Plan or tier differences aren't presented in a directly comparable layout. |
 
 Report each finding on one line:
 
 `[SEVERITY] CO-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

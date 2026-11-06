@@ -50,22 +50,22 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| CL-1 | Blocker | Completing a core task requires the user to remember information from a previous screen or step that the interface could display. |
-| CL-2 | Major | A screen presents information or controls not needed for its primary task, with no progressive disclosure. |
-| CL-3 | Major | Labels use internal jargon, codes or abbreviations that the target users wouldn't use. |
-| CL-4 | Major | The user must compute, convert or cross-reference something the system already knows. |
-| CL-5 | Major | Several unrelated decisions are demanded on one screen. |
-| CL-6 | Minor | Visual noise (borders, colours, icons) exceeds what the hierarchy needs. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| CL-1 | Blocker | static | Completing a core task requires the user to remember information from a previous screen or step that the interface could display. |
+| CL-2 | Major | static | A screen presents information or controls not needed for its primary task, with no progressive disclosure. |
+| CL-3 | Major | static | Labels use internal jargon, codes or abbreviations that the target users wouldn't use. |
+| CL-4 | Major | static | The user must compute, convert or cross-reference something the system already knows. |
+| CL-5 | Major | static | Several unrelated decisions are demanded on one screen. |
+| CL-6 | Minor | static | Visual noise (borders, colours, icons) exceeds what the hierarchy needs. |
 
 Report each finding on one line:
 
 `[SEVERITY] CL-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

@@ -50,22 +50,22 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| AUE-1 | Blocker | Visual styling reduces legibility or operability: text contrast below 4.5:1 (3:1 for large text) or essential non-text UI below 3:1 (WCAG 1.4.3, 1.4.11). |
-| AUE-2 | Major | Usability claims rest on satisfaction or preference alone, with no task-success or error evidence behind them. |
-| AUE-3 | Major | Empty, loading, error or overflow states are visibly less finished than the happy path. |
-| AUE-4 | Major | Spacing, type sizes or colours deviate from the system's tokens without a stated reason. |
-| AUE-5 | Minor | Elements are misaligned to the layout grid or to each other. |
-| AUE-6 | Minor | Decorative effects (shadows, gradients, motion) appear without serving hierarchy or feedback. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| AUE-1 | Blocker | static | Visual styling reduces legibility or operability: text contrast below 4.5:1 (3:1 for large text) or essential non-text UI below 3:1 (WCAG 1.4.3, 1.4.11). |
+| AUE-2 | Major | context | Usability claims rest on satisfaction or preference alone, with no task-success or error evidence behind them. |
+| AUE-3 | Major | static | Empty, loading, error or overflow states are visibly less finished than the happy path. |
+| AUE-4 | Major | static, code | Spacing, type sizes or colours deviate from the system's tokens without a stated reason. |
+| AUE-5 | Minor | static | Elements are misaligned to the layout grid or to each other. |
+| AUE-6 | Minor | static | Decorative effects (shadows, gradients, motion) appear without serving hierarchy or feedback. |
 
 Report each finding on one line:
 
 `[SEVERITY] AUE-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

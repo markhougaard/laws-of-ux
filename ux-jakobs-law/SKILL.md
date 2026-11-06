@@ -48,21 +48,21 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| JAK-1 | Blocker | A custom control replaces a standard one but lacks its expected keyboard or assistive-technology behaviour. |
-| JAK-2 | Major | A core interaction deviates from platform or industry convention without a documented and tested benefit. |
-| JAK-3 | Major | Navigation or component placement is inconsistent across screens (WCAG 3.2.3, 3.2.4). |
-| JAK-4 | Major | An established icon is used with a different meaning. |
-| JAK-5 | Minor | A redesign changes learned locations or behaviours with no transition support. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| JAK-1 | Blocker | interactive, code | A custom control replaces a standard one but lacks its expected keyboard or assistive-technology behaviour. |
+| JAK-2 | Major | static | A core interaction deviates from platform or industry convention without a documented and tested benefit. |
+| JAK-3 | Major | static | Navigation or component placement is inconsistent across screens (WCAG 3.2.3, 3.2.4). |
+| JAK-4 | Major | static | An established icon is used with a different meaning. |
+| JAK-5 | Minor | context | A redesign changes learned locations or behaviours with no transition support. |
 
 Report each finding on one line:
 
 `[SEVERITY] JAK-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

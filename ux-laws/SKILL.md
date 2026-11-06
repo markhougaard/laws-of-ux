@@ -67,6 +67,7 @@ Reviews exist to stop problems before commit. Strictness rules:
 
 - **Evidence or it didn't pass.** A check passes only on positive evidence in the artifact. Never assume a state, size, timing or behaviour you can't see.
 - **Unverifiable means UNVERIFIED, not pass.** Name what you'd need (an error state, a measurement, real data, a device, the code).
+- **Scope is stated, never implied.** A verdict covers only the evidence you were given. Checks that need a kind of evidence you didn't get are listed as out of scope, so a screenshot review can't read as a full pass.
 - **Don't soften.** No praise padding, no "overall looks great", no downgrading severity because of deadlines or effort already spent.
 - **Be specific.** Every finding names the location (screen, component, element, or file:line), what you observed, and a concrete fix.
 - **One problem, one finding.** If several laws flag the same issue, report it once, list all check IDs, and use the highest severity.
@@ -74,11 +75,29 @@ Reviews exist to stop problems before commit. Strictness rules:
 
 Steps:
 
-1. Inventory what you were given (screens, states, breakpoints, code) and what's missing.
+1. Inventory what you were given (screens, states, breakpoints, code) and what's missing, and set the **evidence scope**: which of the evidence kinds below you have.
 2. Select the baseline plus situational laws.
-3. Run every check in each selected law's Mode 3 table.
+3. Run every check in each selected law's Mode 3 table. Sort each check into one of:
+   - **checked** — passed or produced a finding;
+   - **unverified** — its evidence kind is in scope, but the state, element or measurement it needs is missing (for example `static` scope, but no error-state screen);
+   - **out of scope** — none of its evidence kinds is in scope;
+   - **not applicable** — the artifact has nothing the check is about (for example FIT-1 on a mouse-only desktop tool). Give the reason in a few words.
 4. Merge duplicates, assign severity, write fixes.
-5. Give the verdict.
+5. Give the verdict, with its scope.
+
+### Evidence kinds
+
+Every Mode 3 check has an **Evidence** column naming the kinds of input that can settle it. When it lists more than one, any one of them is enough.
+
+| Kind | What it is | Typical inputs |
+|---|---|---|
+| `static` | What can be seen in still images of the relevant screens and states. | Screenshots, static mocks, design files with measurements, flow boards |
+| `interactive` | What only shows when you operate the thing: keyboard, focus, transitions, timing as experienced, what happens after an action. | A clickable prototype, a running build, a URL, a screen recording |
+| `code` | What is in the source or markup: semantics, ARIA, `autocomplete`, hit areas, tokens. | A diff, component source, rendered DOM |
+| `runtime` | Measurements on realistic hardware, networks and data. | Performance traces, RUM or lab numbers |
+| `context` | Facts outside the artifact: usage data, research, decision records, business rules. | Analytics, research findings, a PRD or ADR, a statement from the team |
+
+Count an evidence kind as in scope only if you actually have it. Being told that the code exists doesn't put `code` in scope.
 
 ### Severity
 
@@ -90,20 +109,26 @@ Steps:
 
 ### Verdict
 
-- Any **Blocker** → **Do not commit.**
-- Any check that would be a Blocker if it failed is **UNVERIFIED** → **Blocked pending evidence.**
-- Any **Major** → **Commit only with each Major fixed or accepted by a named owner.**
-- Only **Minor** or none → **Pass.**
+Apply the first rule that matches:
+
+1. Any **Blocker** → **Do not commit.**
+2. Any in-scope Blocker check is **UNVERIFIED** → **Blocked pending evidence.** Name the missing state or measurement, which the team could have supplied with the evidence they already gave.
+3. Any **Major** → **Commit only with each Major fixed or accepted by a named owner.**
+4. Only **Minor** or none → **Pass.**
+
+Every verdict carries its scope, for example **Pass (static scope)**. If any Blocker checks are out of scope, list them on the verdict line with the evidence kind each needs, for example `out of scope: JAK-1 (interactive), SA-2 (interactive), DOH-1 (interactive)`. A verdict can be unqualified (just "Pass") only when no Blocker check of the selected laws is out of scope or unverified. Out-of-scope checks never change the verdict. They tell the team what is still unreviewed, and whether it needs a second pass with more evidence before release.
 
 ### Report template
 
 ```
 ## UX laws review — <artifact name>
 
-Scope: <what was reviewed: screens, states, breakpoints, files>
+Reviewed: <what was reviewed: screens, states, breakpoints, files>
+Evidence scope: <static | interactive | code | runtime | context — those actually supplied>
 Not provided: <missing states or evidence>
 Laws applied: <codes>
-Verdict: <Do not commit | Blocked pending evidence | Commit with accepted Majors | Pass>
+Verdict: <Do not commit | Blocked pending evidence | Commit with accepted Majors | Pass> (<scope> scope)
+         out of scope: <Blocker check IDs with the evidence kind each needs, or "none">
 
 ### Blockers
 - [BLOCKER] FIT-1, JAK-1 · <location> — <observation> → <fix>
@@ -114,8 +139,15 @@ Verdict: <Do not commit | Blocked pending evidence | Commit with accepted Majors
 ### Minors
 - [MINOR] SIM-6 · <location> — <observation> → <fix>
 
-### Unverified
-- FIT-1 · <what couldn't be checked> — needs <evidence>
+### Unverified (in scope, evidence missing)
+- POS-2 · <what couldn't be checked> — needs <the specific state or measurement>
+
+### Out of scope
+- interactive: JAK-1, SA-2, DOH-1, …
+- code: CH-3, PKL-3, …
+
+### Not applicable
+- FIT-1 — <reason>
 
 ### Applied with no findings
 <codes>

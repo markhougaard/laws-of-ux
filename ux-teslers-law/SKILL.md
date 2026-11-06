@@ -49,21 +49,21 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| TES-1 | Blocker | Automation takes consequential action that users can't see, understand, override or undo. |
-| TES-2 | Major | Users must supply information or make configuration choices the system could determine. |
-| TES-3 | Major | Simplification removed control needed for legitimate use cases, with no advanced path. |
-| TES-4 | Major | Complexity was moved to another part of the user's job (support calls, manual workarounds) rather than to the system. |
-| TES-5 | Minor | Inferred values are applied without being shown or editable. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| TES-1 | Blocker | interactive | Automation takes consequential action that users can't see, understand, override or undo. |
+| TES-2 | Major | static | Users must supply information or make configuration choices the system could determine. |
+| TES-3 | Major | context | Simplification removed control needed for legitimate use cases, with no advanced path. |
+| TES-4 | Major | context | Complexity was moved to another part of the user's job (support calls, manual workarounds) rather than to the system. |
+| TES-5 | Minor | static | Inferred values are applied without being shown or editable. |
 
 Report each finding on one line:
 
 `[SEVERITY] TES-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

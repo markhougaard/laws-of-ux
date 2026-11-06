@@ -49,22 +49,22 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| DOH-1 | Blocker | A user action produces no visible feedback for more than about 1 s, so users may repeat it (double submissions, duplicate payments). |
-| DOH-2 | Major | Common interactions exceed about 400 ms on target hardware with no perceived-performance mitigation. |
-| DOH-3 | Major | Operations over about 10 s block the interface with no progress, estimate or background option. |
-| DOH-4 | Major | No performance measurement was done on realistic devices or networks. |
-| DOH-5 | Minor | Animations or transitions lengthen the time to result. |
-| DOH-6 | Minor | Layout shifts during loading move targets under the user's pointer. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| DOH-1 | Blocker | interactive, runtime | A user action produces no visible feedback for more than about 1 s, so users may repeat it (double submissions, duplicate payments). |
+| DOH-2 | Major | runtime | Common interactions exceed about 400 ms on target hardware with no perceived-performance mitigation. |
+| DOH-3 | Major | interactive | Operations over about 10 s block the interface with no progress, estimate or background option. |
+| DOH-4 | Major | context | No performance measurement was done on realistic devices or networks. |
+| DOH-5 | Minor | interactive | Animations or transitions lengthen the time to result. |
+| DOH-6 | Minor | interactive, runtime | Layout shifts during loading move targets under the user's pointer. |
 
 Report each finding on one line:
 
 `[SEVERITY] DOH-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

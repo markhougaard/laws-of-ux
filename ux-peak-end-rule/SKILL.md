@@ -48,21 +48,21 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| PE-1 | Blocker | A failure or error state loses user work or gives no path forward. |
-| PE-2 | Major | Completion of a key task ends without specific confirmation or next steps. |
-| PE-3 | Major | Cancellation or offboarding is obstructive, hidden or uses guilt or shame. |
-| PE-4 | Major | Error messages are generic, technical or blame the user. |
-| PE-5 | Minor | Delight elements are applied indiscriminately or delay the task. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| PE-1 | Blocker | interactive | A failure or error state loses user work or gives no path forward. |
+| PE-2 | Major | static | Completion of a key task ends without specific confirmation or next steps. |
+| PE-3 | Major | interactive | Cancellation or offboarding is obstructive, hidden or uses guilt or shame. |
+| PE-4 | Major | static | Error messages are generic, technical or blame the user. |
+| PE-5 | Minor | static | Delight elements are applied indiscriminately or delay the task. |
 
 Report each finding on one line:
 
 `[SEVERITY] PE-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

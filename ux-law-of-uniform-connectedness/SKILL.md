@@ -46,20 +46,20 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| UC-1 | Blocker | A visual connection implies a relationship, sequence or dependency that doesn't exist, in a way that could mislead decisions (for example lines joining discrete categories in a chart). |
-| UC-2 | Major | A real sequence or dependency that users must understand is shown without any connection cue. |
-| UC-3 | Major | Connectors become unreadable at realistic data volumes (crossing lines, deep trees without structure). |
-| UC-4 | Minor | Divider lines visually join items that belong to different groups. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| UC-1 | Blocker | static | A visual connection implies a relationship, sequence or dependency that doesn't exist, in a way that could mislead decisions (for example lines joining discrete categories in a chart). |
+| UC-2 | Major | static | A real sequence or dependency that users must understand is shown without any connection cue. |
+| UC-3 | Major | static | Connectors become unreadable at realistic data volumes (crossing lines, deep trees without structure). |
+| UC-4 | Minor | static | Divider lines visually join items that belong to different groups. |
 
 Report each finding on one line:
 
 `[SEVERITY] UC-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

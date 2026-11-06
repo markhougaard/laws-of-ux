@@ -47,20 +47,20 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| SPE-1 | Major | The most important item in a list or navigation is buried in the middle. |
-| SPE-2 | Major | Item order changes between sessions or screens without user control (except deliberate, explained personalisation). |
-| SPE-3 | Major | Order is used to push an option against user interest without a clear label. |
-| SPE-4 | Minor | A long sequence users must remember has no summary at the end. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| SPE-1 | Major | static | The most important item in a list or navigation is buried in the middle. |
+| SPE-2 | Major | interactive | Item order changes between sessions or screens without user control (except deliberate, explained personalisation). |
+| SPE-3 | Major | static | Order is used to push an option against user interest without a clear label. |
+| SPE-4 | Minor | static | A long sequence users must remember has no summary at the end. |
 
 Report each finding on one line:
 
 `[SEVERITY] SPE-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 

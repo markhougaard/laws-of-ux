@@ -48,21 +48,21 @@ Steer the work toward:
 
 ## Mode 3 — Review (strict gate before commit)
 
-Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+Run every check. A check passes only on positive evidence in the artifact — never by default. The **Evidence** column says what kind of input can settle each check (`static`, `interactive`, `code`, `runtime`, `context` — defined in `ux-laws`). If none of those kinds was supplied, list the check as *out of scope* with the evidence it needs. If the right kind was supplied but the relevant state or element is missing, mark it `UNVERIFIED` and name what you would need. Don't soften findings and don't award points for intent.
 
-| ID | Severity | Check |
-|---|---|---|
-| PRX-1 | Blocker | A label, value, error message or control is visually closer to an element it doesn't belong to than to its own, so it can be misread. |
-| PRX-2 | Blocker | A destructive action sits immediately next to a frequent safe action with no separation. |
-| PRX-3 | Major | Within-group and between-group spacing are equal or nearly equal, so groups can't be distinguished. |
-| PRX-4 | Major | Grouping that works at desktop width collapses at a supported smaller width. |
-| PRX-5 | Minor | Spacing values are off the scale (arbitrary pixel values) without justification. |
+| ID | Severity | Evidence | Check |
+|---|---|---|---|
+| PRX-1 | Blocker | static | A label, value, error message or control is visually closer to an element it doesn't belong to than to its own, so it can be misread. |
+| PRX-2 | Blocker | static | A destructive action sits immediately next to a frequent safe action with no separation. |
+| PRX-3 | Major | static | Within-group and between-group spacing are equal or nearly equal, so groups can't be distinguished. |
+| PRX-4 | Major | static | Grouping that works at desktop width collapses at a supported smaller width. |
+| PRX-5 | Minor | static, code | Spacing values are off the scale (arbitrary pixel values) without justification. |
 
 Report each finding on one line:
 
 `[SEVERITY] PRX-n · <screen / component / file:line> — <what you observed> → <specific fix>`
 
-Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+Verdict: any **Blocker** → *Do not commit*. An in-scope Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Every verdict states its evidence scope and lists out-of-scope Blocker checks. Severity definitions and the full verdict rule are in `ux-laws`.
 
 ## Tensions and misuse
 
