@@ -1,0 +1,39 @@
+name: Release
+
+# Tags v<version> and creates the GitHub release once the package.json version
+# is live on npm. npm releases are staged and approved by hand, so this runs on
+# version bumps, hourly (to catch approvals), and on demand. See
+# scripts/release-from-npm.js for the checks it makes.
+
+on:
+  push:
+    branches: [main]
+    paths: [package.json]
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Tag and release the published npm version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          node scripts/release-from-npm.js

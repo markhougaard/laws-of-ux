@@ -28,6 +28,7 @@ laws-of-ux/
 └── scripts/
     ├── lint.py                      ← structure and spec checks
     ├── test-cli.js                  ← tests for the installer
+    ├── release-from-npm.js          ← tags and releases a version once it's live on npm
     └── run_evals.py                 ← run the evals with any harness
 ```
 
@@ -113,6 +114,14 @@ Good candidates for adapting to your own product:
   ```
 
   Each case runs in a fresh folder with the skill installed where that harness discovers it, so the evals also test whether the skill gets triggered. Results go to `eval-runs/`. The presets use `claude -p`, `codex exec` and `opencode run`; check their flags against `--help` for your installed version. The same case folders also work with `claude plugin eval . --scaffold`, run from `ux-laws/`. Every run is a real model run, billed by whichever provider each CLI uses.
+
+## Releasing
+
+1. Bump `version` in `package.json`, commit and push to `main`.
+2. Run `npm publish` in a terminal. It runs lint and the tests first. Approve the staged version on npmjs.com under **Staged Packages**, or with `npm stage approve <stage-id>`.
+3. The **Release** workflow then tags the commit npm recorded as `v<version>` and creates the GitHub release, with npm's tarball attached. It checks hourly, so the release appears within an hour of approval. Run it at once from the Actions tab (*Release → Run workflow*). It never tags a version that isn't installable from npm.
+
+To see what it would do: `node scripts/release-from-npm.js --dry-run`.
 
 ## Attribution
 
