@@ -1,0 +1,80 @@
+---
+name: ux-selective-attention
+description: Selective Attention (Laws of UX): People attend to the parts of a screen that match their current goal and filter out the rest. Use to advise up front, guide building, or strictly review notifications, alerts, status changes, banners, onboarding hints, system messages, and placing information users must not miss.
+---
+
+# Selective Attention
+
+**In one line:** People attend to the parts of a screen that match their current goal and filter out the rest.
+
+- **Category:** Perception and attention
+- **Origin:** Colin Cherry's cocktail-party studies (1953); later inattentional blindness (Simons and Chabris, 1999) and banner blindness (Benway and Lane, 1998).
+- **Source:** [lawsofux.com/selective-attention](https://lawsofux.com/selective-attention/)
+- **Index and review protocol:** `ux-laws` ([open](../ux-laws/SKILL.md))
+
+## Pick the mode
+
+- **Advise** — only a goal, brief, problem or early concept exists. Use Mode 1 and shape the direction before anything is drawn or built.
+- **Build** — a design or implementation is in progress. Use Mode 2 as the working reference.
+- **Review** — a finished design, prototype, screenshot set or diff is about to be committed. Use Mode 3 and be strict.
+
+If the request doesn't say, infer it from what you were given: a goal means Advise, work in progress means Build, a finished artifact means Review.
+
+## The principle
+
+Attention is narrow and goal-driven. People focused on a task stop seeing things outside it — including changes in plain view, and anything that looks like advertising. So 'we showed a message' is not the same as 'the user saw it'. Information that matters must be placed in the path of the task, at the moment it matters, in a form that doesn't resemble the things users have learned to ignore.
+
+## Mode 1 — Advise (before design)
+
+Raise these with the team:
+
+- What must users notice even when they're focused on something else (errors, security, data loss, status changes)?
+- Where will their attention actually be at that moment?
+- How many notifications and interruptions will the product generate, and who decides what interrupts?
+
+Steer the work toward:
+
+- Put critical information where the user is already looking — at the point of action.
+- Create a notification priority model: what interrupts, what waits, what's ambient.
+- Assume promotional-looking areas are invisible.
+
+## Mode 2 — Build (while designing or implementing)
+
+- Show validation errors next to the field, and on submit move focus to the first error or an error summary.
+- Announce dynamic status changes to assistive tech with live regions (aria-live='polite' for status, assertive only for urgent issues).
+- Avoid banner-shaped, ad-coloured or carousel placements for anything essential.
+- For changes far from the focus point (a badge updating, a row added), add a brief transition or highlight so the change is noticed.
+- Moving, blinking or auto-updating content that lasts more than 5 seconds needs a way to pause, stop or hide it (WCAG 2.2.2).
+- Don't rely on users reading a toast for anything they must act on; toasts disappear while attention is elsewhere.
+
+## Mode 3 — Review (strict gate before commit)
+
+Run every check. A check passes only on positive evidence in the artifact — never by default. If you can't verify a check from what you were given, mark it `UNVERIFIED` and name what you would need (a state, a measurement, real content, a device). Don't soften findings and don't award points for intent.
+
+| ID | Severity | Check |
+|---|---|---|
+| SA-1 | Blocker | Information required to avoid an error, data loss or security risk appears only outside the user's focus area, or only in a transient toast. |
+| SA-2 | Blocker | Errors are displayed but focus isn't moved and they aren't announced, so keyboard and screen-reader users miss them. |
+| SA-3 | Major | Essential content uses banner, ad-like or carousel styling. |
+| SA-4 | Major | Several simultaneous notifications compete with no priority order. |
+| SA-5 | Major | A significant state change happens without any visible or announced cue. |
+| SA-6 | Minor | Ambient animation or auto-updating content draws attention away from the primary task. |
+
+Report each finding on one line:
+
+`[SEVERITY] SA-n · <screen / component / file:line> — <what you observed> → <specific fix>`
+
+Verdict: any **Blocker** → *Do not commit*. A Blocker-level check left `UNVERIFIED` → *Blocked pending evidence*. Any **Major** → *Commit only with each Major fixed or explicitly accepted by a named owner*. Only **Minor** or none → *Pass*. Severity definitions are in `ux-laws`.
+
+## Tensions and misuse
+
+- Von Restorff emphasis helps only if it doesn't look like noise users already filter.
+- Adding more alerts to fix missed alerts accelerates alert fatigue.
+
+## Related skills
+
+- **`ux-von-restorff-effect`** — how to stand out without being filtered as noise ([open](../ux-von-restorff-effect/SKILL.md))
+- **`ux-cognitive-load`** — attention is a finite resource ([open](../ux-cognitive-load/SKILL.md))
+- **`ux-flow`** — interruptions break focused work ([open](../ux-flow/SKILL.md))
+- **`ux-working-memory`** — what users miss can't be held for later ([open](../ux-working-memory/SKILL.md))
+- **`ux-paradox-of-the-active-user`** — users skip instructions for the same reason ([open](../ux-paradox-of-the-active-user/SKILL.md))
