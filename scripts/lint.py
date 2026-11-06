@@ -272,6 +272,27 @@ for case in sorted(p for p in (SKILL_DIR / "evals").glob("*") if p.is_dir() and 
             if f"{c}-{n}" not in check_ids:
                 err(path, f"mentions check {c}-{n}, which does not exist")
 
+# --- maintainer docs (AGENTS.md, imported by CLAUDE.md) ----------------------
+# Agents rely on AGENTS.md to work on this repo, so keep it true: every repo
+# path it names must exist and every check ID it cites must exist.
+agents = ROOT / "AGENTS.md"
+if not agents.exists():
+    err(ROOT, "AGENTS.md is missing")
+else:
+    text = read(agents)
+    path_re = r"`((?:ux-laws|scripts|bin|\.github)/[^`\s]*|package\.json|README\.md|LICENSE|CLAUDE\.md|AGENTS\.md)`"
+    for target in sorted(set(re.findall(path_re, text))):
+        if any(ch in target for ch in "<*…"):
+            continue  # placeholder such as references/<law>.md
+        if not (ROOT / target.rstrip("/")).exists():
+            err(agents, f"names `{target}`, which does not exist")
+    for c, n in set(id_re.findall(text)):
+        if f"{c}-{n}" not in check_ids:
+            err(agents, f"mentions check {c}-{n}, which does not exist")
+claude_md = ROOT / "CLAUDE.md"
+if not claude_md.exists() or "@AGENTS.md" not in read(claude_md):
+    err(ROOT, "CLAUDE.md must exist and import @AGENTS.md")
+
 # --- report ---------------------------------------------------------------
 if errors:
     print("\n".join(errors))
