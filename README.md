@@ -1,8 +1,8 @@
-# Laws of UX — agent skills
+# Laws of UX — agent skill
 
-31 skills: one per law on [lawsofux.com](https://lawsofux.com/) (30), plus `ux-laws`, an entry point that picks the mode, selects the relevant laws and defines the review protocol.
+One skill, `ux-laws`, covering all 30 laws on [lawsofux.com](https://lawsofux.com/). Its `SKILL.md` picks the mode, selects the relevant laws and defines the review protocol. Each law is a reference file the agent opens only when it's needed, so the 30 laws cost no context until they're used.
 
-## Three ways to use them
+## Three ways to use it
 
 | Mode | When | Example prompt |
 |---|---|---|
@@ -10,47 +10,51 @@
 | **Build** | While designing or implementing | "I'm building the filter panel component — what do the UX laws say I should get right?" |
 | **Review** | Before committing a design or a UI diff | "Run a strict UX laws review of these screens / this PR before we merge." |
 
-Every law skill contains all three modes, so it can also be used alone ("review this form against Postel's Law").
+Every law file contains all three modes, so you can also name a single law ("review this form against Postel's Law"). The skill then opens just that law.
 
 ## Structure
 
 ```
 laws-of-ux/
 ├── README.md
-├── ux-laws/SKILL.md                 ← start here: modes, law selection, review protocol, severities, report format
-├── ux-fitts-law/SKILL.md
-├── ux-hicks-law/SKILL.md
-└── … 28 more, one folder per law
+└── ux-laws/
+    ├── SKILL.md                     ← modes, law selection, review protocol, evidence kinds, severities, report format
+    └── references/
+        ├── fitts-law.md
+        ├── hicks-law.md
+        └── … 28 more, one file per law
 ```
 
-Each law's `SKILL.md` has:
+Each law file has:
 
 - **The principle** — what it is, where it comes from, and its known limits
 - **Mode 1 — Advise** — questions to put to the team, and where to steer
 - **Mode 2 — Build** — concrete practices and values (target sizes, timings, WCAG criteria)
-- **Mode 3 — Review** — numbered checks (for example `FIT-1`) with Blocker / Major / Minor severity, the kind of evidence each needs (`static`, `interactive`, `code`, `runtime`, `context`), a one-line finding format, and a verdict rule
+- **Mode 3 — Review** — numbered checks (for example `FIT-1`) with Blocker / Major / Minor severity and the kind of evidence each needs (`static`, `interactive`, `code`, `runtime`, `context`)
 - **Tensions and misuse** — where it conflicts with other laws or is commonly misapplied
-- **Related skills** — the most relevant other laws, with the reason, as relative links
+- **Related laws** — the most relevant other laws, with the reason, as relative links
+
+The review protocol, finding format and verdict rule are defined once, in `SKILL.md`. The law files don't repeat them.
 
 Review is strict by design: a check passes only on evidence, and any Blocker means *do not commit*. Every verdict states its evidence scope. A screenshot review can return **Pass (static scope)**, but it must list the Blocker checks it couldn't cover (for example keyboard behaviour, which needs `interactive` evidence), so a partial review never reads as a full pass. A check whose evidence kind was supplied but whose state is missing, such as an error screen nobody provided, is `UNVERIFIED` and blocks the verdict.
 
 ## Installing
 
-- **Claude Code:** copy the skill folders into `.claude/skills/` in a repository (team-shared) or `~/.claude/skills/` (personal).
-- **Claude apps:** zip each skill folder and upload it in Claude's skills settings, or package them together as a plugin.
-- **Other agents:** each `SKILL.md` is plain Markdown with `name` and `description` frontmatter; point the agent at the folder, or include `ux-laws/SKILL.md` in the system prompt and let it open the others by path.
+- **Claude Code:** copy the `ux-laws` folder into `.claude/skills/` in a repository (team-shared) or `~/.claude/skills/` (personal).
+- **Claude apps:** zip the `ux-laws` folder and upload it in Claude's skills settings, or package it as a plugin.
+- **Other agents:** `SKILL.md` is plain Markdown with `name` and `description` frontmatter. Include it in the system prompt and let the agent open `references/<law>.md` by path.
 
-Keep the folders side by side — cross-references use relative paths like `../ux-hicks-law/SKILL.md`.
+Keep `references/` next to `SKILL.md`. All links are relative.
 
 ## Customising
 
 Good candidates for adapting to your own product:
 
-- Severity thresholds in `ux-laws` (for example making all Majors blocking for regulated releases)
-- The situation table in `ux-laws`, to match your product's screen types
+- Severity thresholds in `SKILL.md` (for example making all Majors blocking for regulated releases)
+- The situation table in `SKILL.md`, to match your product's screen types
 - Design-system tokens and component names in the Build sections
-- Domain conventions in `ux-jakobs-law` if your users' reference tools aren't consumer apps
+- Domain conventions in `references/jakobs-law.md` if your users' reference tools aren't consumer apps
 
 ## Attribution
 
-The list of laws follows [Laws of UX](https://lawsofux.com/) by Jon Yablonski (site content licensed CC BY-NC-ND 4.0). The text in these skills is written independently from the underlying research and doesn't reproduce the site's content; each skill links to its page on the site. The book *Laws of UX* (O'Reilly) covers the laws in more depth.
+The list of laws follows [Laws of UX](https://lawsofux.com/) by Jon Yablonski (site content licensed CC BY-NC-ND 4.0). The text in these files is written independently from the underlying research and doesn't reproduce the site's content; each law links to its page on the site. The book *Laws of UX* (O'Reilly) covers the laws in more depth.
