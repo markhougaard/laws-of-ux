@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/lint.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Package contains only the skill, CLI, README and LICENSE
+        run: |
+          npm pack --dry-run --json > pack.json
+          node -e '
+            const files = require("./pack.json")[0].files.map(f => f.path);
+            const bad = files.filter(f => !/^(LICENSE|README\.md|package\.json|bin\/ux-laws\.js|ux-laws\/SKILL\.md|ux-laws\/references\/[a-z-]+\.md)$/.test(f));
+            const refs = files.filter(f => f.startsWith("ux-laws/references/")).length;
+            if (bad.length || refs !== 30) { console.error({ bad, refs }); process.exit(1); }
+            console.log(files.length + " files, " + refs + " law references");'
+
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [18, 22]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
