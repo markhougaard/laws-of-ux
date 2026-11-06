@@ -117,11 +117,14 @@ function remove(p) {
   return true;
 }
 
+// Copy each top-level entry except evals/. (A cpSync filter is unreliable here:
+// on Windows with Node 18 the paths it receives don't match SRC's form.)
 function copySkill(dest) {
-  fs.cpSync(SRC, dest, {
-    recursive: true,
-    filter: (src) => path.relative(SRC, src).split(path.sep)[0] !== "evals",
-  });
+  fs.mkdirSync(dest, { recursive: true });
+  for (const entry of fs.readdirSync(SRC)) {
+    if (entry === "evals") continue;
+    fs.cpSync(path.join(SRC, entry), path.join(dest, entry), { recursive: true });
+  }
 }
 
 function updateAgentsMd(file, skillPath, removeOnly) {
